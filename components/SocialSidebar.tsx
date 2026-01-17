@@ -5,8 +5,8 @@ const SocialSidebar: React.FC = () => {
   const [isAtBottom, setIsAtBottom] = useState(false);
 
   const socialLinks = [
-    { id: 'facebook', name: 'Facebook', icon: '/public/images/Asset 15.png', url: 'https://www.facebook.com/profile.php?id=61575001066937' },
-    { id: 'tiktok', name: 'TikTok', icon: '/public/images/Asset 16.png', url: 'https://www.tiktok.com/@aqrablaak' },
+    { id: 'facebook', name: 'Facebook', icon: 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768685537/Asset_15_lzcgst.png', url: 'https://www.facebook.com/profile.php?id=61575001066937' },
+    { id: 'tiktok', name: 'TikTok', icon: 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768685642/Asset_16_oexox9.png', url: 'https://www.tiktok.com/@aqrablaak' },
     { id: 'instagram', name: 'Instagram', icon: '/public/images/insta.png', url: 'https://www.instagram.com/aqrablaak/' },
     { id: 'X', name: 'X', icon: '/public/images/Asset 17.png', url: 'https://x.com/aqrablaak' },
     { id: 'youtyube', name: 'youtube', icon: '/public/images/Asset 18.png', url: 'https://www.youtube.com/@aqrablaak' },
