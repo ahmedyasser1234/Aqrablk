@@ -17,6 +17,8 @@ import StudioRentalPage from './pages/StudioRentalPage.tsx';
 import WebDesignPage from './pages/WebDesignPage.tsx';
 import ContentWritingPage from './pages/ContentWritingPage.tsx';
 import MarketingPage from './pages/MarketingPage.tsx';
+import AboutPage from './pages/AboutPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
 import ScrollToTop from './components/ScrollToTop.tsx';
 import SocialSidebar from './components/SocialSidebar.tsx';
 import CursorEffect from './components/CursorEffect.tsx';
@@ -42,6 +44,8 @@ const App: React.FC = () => {
       <main className="relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/motion-graphics" element={<MotionGraphicsPage />} />
           <Route path="/services/montage" element={<MontagePage />} />

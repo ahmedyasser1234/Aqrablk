@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
       audio.volume = 0.4;
       audio.currentTime = 0;
       audio.play().catch(() => {
+        // Autoplay might be blocked or network error, ignore silently
       });
     } catch (e) {
       console.warn("Audio playback not supported or blocked", e);
@@ -135,8 +136,8 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <Link to="#" onClick={() => { triggerCrack(); setIsDiscoverOpen(false); }} className="text-base font-medium hover:text-blue-400 transition-colors text-white relative z-10">{t('nav.about')}</Link>
-        <Link to="#" onClick={() => { triggerCrack(); setIsDiscoverOpen(false); }} className="text-base font-medium hover:text-blue-400 transition-colors text-white relative z-10">{t('nav.contact')}</Link>
+        <Link to="/about" onClick={() => { triggerCrack(); setIsDiscoverOpen(false); }} className={`text-base font-medium hover:text-blue-400 transition-colors relative z-10 ${location.pathname === '/about' ? 'text-blue-400' : 'text-white'}`}>{t('nav.about')}</Link>
+        <Link to="/contact" onClick={() => { triggerCrack(); setIsDiscoverOpen(false); }} className={`text-base font-medium hover:text-blue-400 transition-colors relative z-10 ${location.pathname === '/contact' ? 'text-blue-400' : 'text-white'}`}>{t('nav.contact')}</Link>
       </nav>
 
       {/* Right Section */}
@@ -191,8 +192,8 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <Link to="#" onClick={() => triggerCrack()} className="text-3xl font-bold text-white hover:text-blue-400 transition-colors">{t('nav.about')}</Link>
-          <Link to="#" onClick={() => triggerCrack()} className="text-3xl font-bold text-white hover:text-blue-400 transition-colors">{t('nav.contact')}</Link>
+          <Link to="/about" onClick={() => triggerCrack()} className="text-3xl font-bold text-white hover:text-blue-400 transition-colors">{t('nav.about')}</Link>
+          <Link to="/contact" onClick={() => triggerCrack()} className="text-3xl font-bold text-white hover:text-blue-400 transition-colors">{t('nav.contact')}</Link>
         </div>
       </div>
     </header>

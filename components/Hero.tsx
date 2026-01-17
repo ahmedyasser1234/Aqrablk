@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
     { name: t('service.content'), path: '/services/content-writing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686454/glax_asgtg5.png", color: '#38bdf8' }, // Sky
     { name: t('service.marketing'), path: '/services/marketing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", color: '#ec4899' }, // Pink
   ];
-
+  
   const scrollToIndex = (index: number) => {
     if (sliderRef.current) {
       const container = sliderRef.current;
