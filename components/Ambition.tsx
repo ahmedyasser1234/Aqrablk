@@ -15,7 +15,7 @@ const Ambition: React.FC = () => {
           : 'md:right-10 md:left-auto'
       }`}>
         <img 
-          src={language === 'en' ? '/public/images/xxxxx.png' : '/public/images/xxxxx.png'} 
+          src={language === 'en' ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686185/xxxxx_chyx9k.png' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686185/xxxxx_chyx9k.png'} 
           alt="Astronaut holding flag" 
           className="w-full h-auto drop-shadow-[0_0_60px_rgba(255,255,255,0.15)] opacity-100"
           onError={(e) => { (e.target as HTMLImageElement).style.opacity = '1'; }}

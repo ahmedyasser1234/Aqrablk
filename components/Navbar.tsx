@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
       <div className="flex items-center md:ms-12 pointer-events-auto">
         <Link to="/" className="relative z-50">
           <img 
-            src="/public/images/Asset 3.png" 
+            src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686064/Asset_3_ypwlqu.png" 
             alt="Aqrablik Media Logo" 
             className="h-10 md:h-16 w-auto object-contain cursor-pointer hover:opacity-80 transition-opacity" 
           />

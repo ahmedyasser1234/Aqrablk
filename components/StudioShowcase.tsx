@@ -9,7 +9,7 @@ const StudioShowcase: React.FC = () => {
         {/* حاوية الصورة الرئيسية بتصميم منحني يشبه سفينة الفضاء */}
         <div className="relative aspect-[21/9] w-full overflow-hidden border-y border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.5)]">
           <img 
-            src="/public/images/zzzz.png" 
+            src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686177/zzzz_rprsbt.png" 
             alt="Studio Preview" 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             onError={(e) => {

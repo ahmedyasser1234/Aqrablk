@@ -14,7 +14,7 @@ const Goals: React.FC = () => {
           {/* رائد الفضاء - يسار دائماً */}
           <div className="w-[40%] animate-float pointer-events-none z-40">
             <img 
-              src="/public/images/cccc.png" 
+              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" 
               alt="رائد فضاء" 
               className="w-full h-auto opacity-100"
             />
@@ -23,7 +23,7 @@ const Goals: React.FC = () => {
           {/* لوحة الهدف - يمين دائماً */}
           <div className="w-[30%] animate-float pointer-events-none z-40" style={{ animationDelay: '1s' }}>
             <img 
-              src="/public/images/Asset 8.png" 
+              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" 
               alt="لوحة الهدف" 
               className="w-full h-auto opacity-100"
             />
@@ -34,7 +34,7 @@ const Goals: React.FC = () => {
         {/* تم تغيير end-[-130px] إلى left-[-130px] ليبقى على اليسار دائماً في الديسكتوب */}
         <div className="hidden md:block absolute left-[-130px] top-[-55%] -translate-y-1/2 w-[300px] pointer-events-none z-40 animate-float opacity-100">
           <img 
-            src="/public/images/cccc.png" 
+            src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" 
             alt="رائد فضاء" 
             className={`w-full h-auto ${language === 'en' ? 'scale-x-[1]' : ''}`}
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
@@ -56,7 +56,7 @@ const Goals: React.FC = () => {
         <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[250px] pointer-events-none z-40 opacity-100">
           <div className="relative animate-float" style={{ animationDelay: '1s' }}>
             <img 
-              src="/public/images/Asset 8.png" 
+              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" 
               alt="لوحة الهدف" 
               className={`w-full h-auto ${language === 'en' ? 'scale-x-[1]' : ''}`}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
