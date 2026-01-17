@@ -11,13 +11,13 @@ const Hero: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const sliderData = [
-    { name: t('service.motion'), path: '/services/motion-graphics', image: 'arct.png', color: '#3b82f6' }, // Blue
-    { name: t('service.montage'), path: '/services/montage', image: 'glax.png', color: '#a855f7' }, // Purple
-    { name: t('service.photography'), path: '/services/photography', image: 'sharik.png', color: '#22d3ee' }, // Cyan
-    { name: t('service.studio'), path: '/services/studio-rental', image: 'shelter.png', color: '#fb923c' }, // Orange
-    { name: t('service.web'), path: '/services/web-design', image: 'arct.png', color: '#6366f1' }, // Indigo
-    { name: t('service.content'), path: '/services/content-writing', image: 'glax.png', color: '#38bdf8' }, // Sky
-    { name: t('service.marketing'), path: '/services/marketing', image: 'sharik.png', color: '#ec4899' }, // Pink
+    { name: t('service.motion'), path: '/services/motion-graphics', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686440/arct_o02dz4.png", color: '#3b82f6' }, // Blue
+    { name: t('service.montage'), path: '/services/montage', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686454/glax_asgtg5.png", color: '#a855f7' }, // Purple
+    { name: t('service.photography'), path: '/services/photography', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", color: '#22d3ee' }, // Cyan
+    { name: t('service.studio'), path: '/services/studio-rental', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686457/shelter_i6bufo.png", color: '#fb923c' }, // Orange
+    { name: t('service.web'), path: '/services/web-design', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686440/arct_o02dz4.png", color: '#6366f1' }, // Indigo
+    { name: t('service.content'), path: '/services/content-writing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686454/glax_asgtg5.png", color: '#38bdf8' }, // Sky
+    { name: t('service.marketing'), path: '/services/marketing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", color: '#ec4899' }, // Pink
   ];
 
   const scrollToIndex = (index: number) => {
