@@ -89,14 +89,14 @@ const Hero: React.FC = () => {
               </p>
               <span className="w-8 md:w-24 h-[1px] bg-gradient-to-r from-white/60 to-transparent block"></span>
             </ScrollReveal>
-<br />
+            <br />
             <ScrollReveal delay={0.2} className="relative mb-1 md:mb-6 w-full">
               <div className="absolute end-full top-0 lg:top-1/2 -translate-y-1/2 w-16 h-16 lg:w-44 lg:h-44 animate-float z-40 pointer-events-none translate-x-1/2 lg:translate-x-0 opacity-30 lg:opacity-100">
                 <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="نيزك ثابت" className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.15)]" />
               </div>
               <br />
               <br />
-              <h1 className="text-2xl md:text-4xl lg:text-[7rem]  glow-text leading-[1.1] md:leading-[0.85] ">
+              <h1 className="text-2xl md:text-4xl lg:text-[7rem] glow-text leading-[1.1] md:leading-[0.85] font-black">
                 {t('hero.title')}
               </h1>
             </ScrollReveal>
@@ -167,7 +167,7 @@ const Hero: React.FC = () => {
                     } : {}}
                   >
                     <img 
-                      src={`/public/images/${service.image}`} 
+                      src={service.image} 
                       alt={service.name}
                       className="w-full h-full object-cover transition-opacity duration-500 opacity-60 group-hover:opacity-100"
                     />

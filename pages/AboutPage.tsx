@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
             <div className="relative group">
               <div className="absolute -inset-4 bg-blue-500/10 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <img 
-                src="/public/images/Asset 3.png" 
+                src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686064/Asset_3_ypwlqu.png" 
                 alt="Aqrablik Media Logo"
                 className="relative rounded-[2.5rem] shadow-2xl w-full h-auto object-contain bg-white/5 p-8 md:p-12 animate-float"
               />
