@@ -73,10 +73,14 @@ const translations: Record<Language, Record<string, string>> = {
     // Page: Motion Graphics
     'page.motion.title': 'موشن جرافيك',
     'page.motion.desc': 'نحول الأفكار المعقدة إلى رسوم متحركة بسيطة وجذابة. موشن جرافيك يطيّر فكرتك في مدار جديد ويخطف أنظار العملاء من الثانية الأولى.',
+    'page.motion.gallery_motion': 'معرض الموشن جرافيك',
+    'page.motion.gallery_whiteboard': 'معرض الوايت بورد',
     
     // Page: Montage
     'page.montage.title': 'مونتـــــــاج',
     'page.montage.desc': 'المونتاج هو روح الفيديو. نحن نقوم بقص ودمج لقطاتك بأسلوب سينمائي يروي قصة ويبني شعوراً لا ينسى لدى المشاهد.',
+    'page.montage.gallery_vertical': 'مونتاج طولي (Reels & TikTok)',
+    'page.montage.gallery_horizontal': 'مونتاج عرضي (Cinematic)',
     
     // Page: Photography
     'page.photography.title': 'تصــويــر إحتــرافـــي',
@@ -230,11 +234,15 @@ const translations: Record<Language, Record<string, string>> = {
     // Page: Motion Graphics
     'page.motion.title': 'Motion Graphics',
     'page.motion.desc': 'We transform complex ideas into simple, attractive animations. Motion graphics fly your idea into a new orbit and capture customer attention from the first second.',
+    'page.motion.gallery_motion': 'Motion Graphics Gallery',
+    'page.motion.gallery_whiteboard': 'Whiteboard Gallery',
     
     // Page: Montage
     'page.montage.title': 'Montage',
     'page.montage.desc': 'Editing is the soul of the video. We cut and merge your footage with a cinematic style that tells a story and builds an unforgettable feeling for the viewer.',
-    
+    'page.montage.gallery_vertical': 'Vertical Montage (Reels & TikTok)',
+    'page.montage.gallery_horizontal': 'Horizontal Montage (Cinematic)',
+
     // Page: Photography
     'page.photography.title': 'Professional Photography',
     'page.photography.desc': 'We believe a picture is worth a thousand words. In our studios, we capture timeless moments using the latest global equipment and lighting that highlights the finest details.',
@@ -328,6 +336,11 @@ const translations: Record<Language, Record<string, string>> = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+/**
+ * LanguageProvider implementation:
+ * - Removed misplaced UI code that used ScrollReveal and caused errors.
+ * - Correctly returns LanguageContext.Provider wrapping children.
+ */
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('ar');
 
