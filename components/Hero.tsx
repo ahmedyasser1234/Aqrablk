@@ -136,7 +136,7 @@ const Hero: React.FC = () => {
           >
             <div className="relative w-[80px] md:w-[240px] animate-float mb-4 md:mb-0">
               <img 
-                src="/public/images/ccc.png" 
+                src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768685845/ccc_ninmwa.png" 
                 alt="رائد فضاء" 
                 className={`w-full h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] ${language === 'en' ? 'scale-x-[-1]' : ''}`}
               />
