@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col items-center lg:items-start text-center lg:text-start w-full relative">
             
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-14 md:h-14 z-50 animate-orbit pointer-events-none hidden md:block">
-              <img src="/public/images/Asset1.png" alt="شهاب مداري" className="w-full h-full object-contain brightness-110 drop-shadow-[0_0_10px_rgba(232,232,232,0.1)]" />
+              <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="شهاب مداري" className="w-full h-full object-contain brightness-110 drop-shadow-[0_0_10px_rgba(232,232,232,0.1)]" />
             </div>
 
             <ScrollReveal className="flex items-center gap-4 mb-0 md:mb-2 opacity-80 relative mx-auto lg:mx-0">
