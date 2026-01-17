@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
 
         <div className="relative w-full max-w-full flex items-center justify-center">
           <div className="absolute start-2 top-1/4 w-12 h-12 md:w-48 md:h-48 z-40 animate-float opacity-30 md:opacity-90 pointer-events-none">
-            <img src="/public/images/Asset 1.png" className="w-full h-full object-contain -rotate-12" />
+            <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" className="w-full h-full object-contain -rotate-12" />
           </div>
 
           <div 

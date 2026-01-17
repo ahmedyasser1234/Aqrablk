@@ -89,7 +89,7 @@ const ServicesPage: React.FC = () => {
         {/* الصخرة الرئيسية */}
         <div className="absolute top-[43%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 md:w-[15rem] md:h-[15rem] pointer-events-none z-20">
           <img 
-            src="/public/images/Asset 1.png" 
+            src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" 
             alt="الصخرة الرئيسية" 
             className="w-full h-full object-contain brightness-90 contrast-110 drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] opacity-95"
           />
