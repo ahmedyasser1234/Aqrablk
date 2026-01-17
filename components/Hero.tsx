@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
               </div>
               <br />
               <br />
-              <h1 className="text-3xl md:text-6xl lg:text-[7rem] text-white glow-text leading-[1.1] md:leading-[0.85] font-black">
+              <h1 className="text-2xl md:text-4xl lg:text-[7rem]  glow-text leading-[1.1] md:leading-[0.85] ">
                 {t('hero.title')}
               </h1>
             </ScrollReveal>
