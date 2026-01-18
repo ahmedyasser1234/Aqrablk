@@ -8,11 +8,11 @@ const Ambition: React.FC = () => {
   return (
     <section className="relative py-4 md:py-20 px-6 md:px-20 min-h-[40vh] md:min-h-[80vh] flex items-center justify-center z-20">
       
-      {/* رائد الفضاء - متموضع في المنتصف للموبايل وفي أقصى الشمال للإنجليزي ديسكتوب */}
-      <div className={`absolute left-1/2 -translate-x-1/2 md:translate-x-0 top-4 md:top-10 w-40 md:w-[600px] h-auto animate-float z-40 pointer-events-none ${
+      {/* رائد الفضاء - متموضع في اليسار للموبايل (إنجليزي) وفي المنتصف (عربي) */}
+      <div className={`absolute top-4 md:top-10 w-40 md:w-[600px] h-auto animate-float z-40 pointer-events-none ${
         language === 'en' 
-          ? 'md:left-0 md:right-auto' 
-          : 'md:right-10 md:left-auto'
+          ? 'left-4 translate-x-0 md:left-0 md:right-auto' 
+          : 'left-1/2 -translate-x-1/2 md:translate-x-0 md:right-10 md:left-auto'
       }`}>
         <img 
           src={language === 'en' ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768753480/FLAG_REVARS_fyvedl.png' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686185/xxxxx_chyx9k.png'} 
@@ -22,8 +22,8 @@ const Ambition: React.FC = () => {
         />
       </div>
 
-      {/* حاوية النص مع إزاحة إضافية لليمين في الإنجليزية ديسكتوب */}
-      <div className={`relative z-30 max-w-5xl w-full flex flex-col items-center md:items-start text-center md:text-start pt-44 md:pt-0 ${
+      {/* حاوية النص مع إزاحة إضافية لليمين في الإنجليزية ديسكتوب - تم الحفاظ على pt-24 للرفع في الموبايل */}
+      <div className={`relative z-30 max-w-5xl w-full flex flex-col items-center md:items-start text-center md:text-start pt-24 md:pt-0 ${
         language === 'en' 
           ? 'md:ms-64 lg:ms-[28rem]' 
           : 'md:ms-32 lg:ms-48'

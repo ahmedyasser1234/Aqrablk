@@ -9,30 +9,38 @@ const Goals: React.FC = () => {
     <section className="relative py-6 md:py-24 px-6 z-20">
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center relative z-20">
         
-        {/* سطر الصور للموبايل فقط - يظهر قبل النصوص */}
-        <div className="flex md:hidden w-full justify-between items-center mb-6 px-2" dir="ltr">
-          {/* رائد الفضاء - يسار دائماً */}
-          <div className="w-[40%] animate-float pointer-events-none z-40">
+        {/* سطر الموبايل: التحكم في أماكن الصور حسب اللغة */}
+        {/* dir="ltr" لضمان ثبات الاتجاه ثم التبديل عبر flex-row-reverse */}
+        <div 
+          className={`flex md:hidden w-full justify-between items-center mb-4 px-0 ${language === 'en' ? 'flex-row-reverse' : 'flex-row'}`} 
+          dir="ltr"
+        >
+          {/* رائد الفضاء - يظهر يساراً في العربية ويميناً في الإنجليزية مع قلب الصورة في الإنجليزية */}
+          <div className="w-[28%] animate-float pointer-events-none z-40">
             <img 
               src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" 
               alt="رائد فضاء" 
-              className="w-full h-auto opacity-100"
+              className={`w-full h-auto opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`}
             />
           </div>
           
-          {/* لوحة الهدف - يمين دائماً */}
-          <div className="w-[30%] animate-float pointer-events-none z-40" style={{ animationDelay: '1s' }}>
+          {/* العنوان - بالمنتصف */}
+          <h2 className="text-2xl font-black text-white glow-text flex-1 text-center px-1" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+            {t('goals.title')}
+          </h2>
+
+          {/* لوحة الهدف - تظهر يميناً في العربية ويساراً في الإنجليزية مع قلب الصورة في الإنجليزية */}
+          <div className="w-[22%] animate-float pointer-events-none z-40" style={{ animationDelay: '1s' }}>
             <img 
               src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" 
               alt="لوحة الهدف" 
-              className="w-full h-auto opacity-100"
+              className={`w-full h-auto opacity-100 ${language === 'en' ? 'scale-x-[-1]' : ''}`}
             />
           </div>
         </div>
 
-        {/* صور الديسكتوب - مخفية في الموبايل ومتموضعة بشكل مطلق في الكمبيوتر */}
-        {/* تم تغيير end-[-130px] إلى left-[-130px] ليبقى على اليسار دائماً في الديسكتوب */}
-        <div className="hidden md:block absolute left-[-130px] top-[-55%] -translate-y-1/2 w-[300px] pointer-events-none z-40 animate-float opacity-100">
+        {/* صور الديسكتوب - رائد الفضاء: يسار في العربي، يمين في الإنجليزي */}
+        <div className={`hidden md:block absolute top-[-55%] -translate-y-1/2 w-[300px] pointer-events-none z-40 animate-float opacity-100 ${language === 'ar' ? 'left-[-130px]' : 'right-[-130px]'}`}>
           <img 
             src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" 
             alt="رائد فضاء" 
@@ -41,19 +49,21 @@ const Goals: React.FC = () => {
           />
         </div>
 
-        {/* النص المركزي */}
+        {/* الحاوية النصية الرئيسية */}
         <ScrollReveal className="relative z-30 flex flex-col items-center max-w-3xl pt-0 md:pt-0">
-          <h2 className="text-2xl md:text-[7rem]  glow-text mb-2 md:mb-8 ">
+          {/* عنوان الديسكتوب - مخفي في الموبايل */}
+          <h2 className="hidden md:block text-2xl md:text-[7rem] font-black text-white glow-text mb-2 md:mb-8">
             {t('goals.title')}
           </h2>
-          <p className="text-sm md:text-3xl text-white/90 leading-relaxed text-center font-light px-2 md:px-4">
+          
+          {/* الوصف - مرفوع للأعلى في الموبايل (-mt-12) ومقسم لثلاثة أسطر (max-w-[280px]) */}
+          <p className="text-sm md:text-3xl text-white/90 leading-relaxed text-center font-light px-2 md:px-4 max-w-[280px] md:max-w-none mx-auto -mt-12 md:mt-0">
             {t('goals.desc_main')}
           </p>
         </ScrollReveal>
 
-        {/* لوحة الهدف للديسكتوب - مخفية في الموبايل */}
-        {/* تم تغيير start-0 إلى right-0 لتبقى على اليمين دائماً في الديسكتوب */}
-        <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[250px] pointer-events-none z-40 opacity-100">
+        {/* لوحة الهدف للديسكتوب - يمين في العربي، يسار في الإنجليزي */}
+        <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-[250px] pointer-events-none z-40 opacity-100 ${language === 'ar' ? 'right-0' : 'left-0'}`}>
           <div className="relative animate-float" style={{ animationDelay: '1s' }}>
             <img 
               src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" 
@@ -66,6 +76,7 @@ const Goals: React.FC = () => {
 
       </div>
 
+      {/* توهج الخلفية */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-900/5 rounded-full blur-[80px] md:blur-[150px] pointer-events-none z-10"></div>
     </section>
   );

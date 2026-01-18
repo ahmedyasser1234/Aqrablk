@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
     { name: t('service.content'), path: '/services/content-writing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686454/glax_asgtg5.png", color: '#38bdf8' }, // Sky
     { name: t('service.marketing'), path: '/services/marketing', image: "https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686455/sharik_mwmenl.png", color: '#ec4899' }, // Pink
   ];
-  
+
   const scrollToIndex = (index: number) => {
     if (sliderRef.current) {
       const container = sliderRef.current;
@@ -74,66 +74,70 @@ const Hero: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <section className="relative min-h-[65vh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-10 md:pt-16">
-        <div className="relative z-30 w-full max-w-5xl flex flex-col items-center">
+      {/* First Section - Reduced min-height on mobile to reduce gap */}
+      <section className="relative min-h-[60vh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-16 md:pt-16 overflow-hidden">
+        <div className="relative z-10 w-full max-w-5xl flex flex-col items-center">
           
           <div className="flex flex-col items-center lg:items-start text-center lg:text-start w-full relative">
             
+            {/* الشهاب المتحرك دورانياً - إخفاءه في الموبايل لتفادي تداخل الماوس أو تصغيره */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-14 md:h-14 z-50 animate-orbit pointer-events-none hidden md:block">
               <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="شهاب مداري" className="w-full h-full object-contain brightness-110 drop-shadow-[0_0_10px_rgba(232,232,232,0.1)]" />
             </div>
 
-            <ScrollReveal className="flex items-center gap-4 mb-0 md:mb-2 opacity-80 relative mx-auto lg:mx-0">
-              <p className="text-sm md:text-2xl font-light text-white/90 whitespace-nowrap">
+            <ScrollReveal className="flex items-center gap-4 mb-2 opacity-80 relative mx-auto lg:mx-0">
+              <p className="text-lg md:text-2xl font-light text-white/90 whitespace-nowrap">
                 {t('hero.out_of_box')}
               </p>
-              <span className="w-8 md:w-24 h-[1px] bg-gradient-to-r from-white/60 to-transparent block"></span>
+              <span className="w-12 md:w-24 h-[1px] bg-gradient-to-r from-white/60 to-transparent block"></span>
             </ScrollReveal>
-            <br />
-            <ScrollReveal delay={0.2} className="relative mb-1 md:mb-6 w-full">
-              <div className="absolute end-full top-0 lg:top-1/2 -translate-y-1/2 w-16 h-16 lg:w-44 lg:h-44 animate-float z-40 pointer-events-none translate-x-1/2 lg:translate-x-0 opacity-30 lg:opacity-100">
+
+            <ScrollReveal delay={0.2} className="relative mb-2 md:mb-8 w-full">
+              <div className="absolute end-full top-0 lg:top-1/2 -translate-y-1/2 w-24 h-24 lg:w-44 lg:h-44 animate-float z-20 pointer-events-none translate-x-1/2 lg:translate-x-0 opacity-40 lg:opacity-100">
                 <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="نيزك ثابت" className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.15)]" />
               </div>
-              
-              <h1 className="text-2xl md:text-4xl lg:text-[7rem] glow-text leading-[1.1] md:leading-[0.85] font-black">
+              <h1 className="text-4xl md:text-6xl lg:text-[7rem] text-white glow-text leading-[1.1] md:leading-[0.85] font-black">
                 {t('hero.title')}
               </h1>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.4} className="max-w-2xl space-y-0 md:space-y-4 px-2 lg:px-0">
-              <p className="text-xs md:text-xl lg:text-2xl text-white/70 leading-relaxed font-light">
+            {/* Forced wrap on mobile using tight max-width */}
+            <ScrollReveal delay={0.4} className="max-w-[280px] md:max-w-2xl space-y-4 px-2 lg:px-0 mx-auto lg:mx-0">
+              <p className="text-base md:text-xl lg:text-2xl text-white/70 leading-relaxed font-light">
                 {t('hero.desc1')}
               </p>
-              <p className="text-xs md:text-xl lg:text-2xl text-white/70 leading-relaxed font-light hidden md:block">
+              <p className="text-base md:text-xl lg:text-2xl text-white/70 leading-relaxed font-light hidden md:block">
                 {t('hero.desc2')}
               </p>
             </ScrollReveal>
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-6xl max-h-[800px] bg-blue-500/5 rounded-full blur-[80px] md:blur-[180px] pointer-events-none z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-6xl max-h-[800px] bg-blue-500/5 rounded-full blur-[100px] md:blur-[180px] pointer-events-none"></div>
       </section>
 
-      <section className="relative min-h-[50vh] py-2 md:py-20 flex flex-col items-center">
+      {/* Second Section - Reduced height and padding on mobile */}
+      <section className="relative min-h-fit py-2 md:py-20 flex flex-col items-center overflow-hidden">
         <ScrollReveal delay={0.2} className="z-50 mb-6 md:mb-16">
           <Link to="/services">
-            <button className="px-6 md:px-14 py-2 md:py-4 rounded-xl md:rounded-2xl bg-[#1a1b26]/60 border border-blue-500/50 text-blue-400 text-lg md:text-4xl font-bold shadow-[0_0_20px_rgba(59,130,246,0.2)] backdrop-blur-xl transition-all hover:scale-105">
+            <button className="px-8 md:px-14 py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#1a1b26]/60 border border-blue-500/50 text-blue-400 text-xl md:text-4xl font-bold shadow-[0_0_20px_rgba(59,130,246,0.2)] backdrop-blur-xl transition-all hover:scale-105">
               {t('nav.discover')}
             </button>
           </Link>
         </ScrollReveal>
 
         <div className="relative w-full max-w-full flex items-center justify-center">
-          <div className="absolute start-2 top-1/4 w-12 h-12 md:w-48 md:h-48 z-40 animate-float opacity-30 md:opacity-90 pointer-events-none">
+          {/* نيازك ديكورية جانبية - إخفاءها في الشاشات الصغيرة جداً */}
+          <div className="absolute start-4 top-1/4 w-16 h-16 md:w-48 md:h-48 z-10 animate-float opacity-50 md:opacity-90 pointer-events-none">
             <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" className="w-full h-full object-contain -rotate-12" />
           </div>
 
           <div 
-            className="absolute z-50 top-1/2 left-1/2 pointer-events-none transition-transform duration-500 ease-out flex flex-col items-center"
+            className="absolute z-40 top-1/2 left-1/2 pointer-events-none transition-transform duration-500 ease-out flex flex-col items-center"
             style={{ 
               transform: `translate(calc(-50% + ${(scrollPos - 0.5) * (language === 'ar' ? 80 : -80)}px), -10%)`,
             }}
           >
-            <div className="relative w-[80px] md:w-[240px] animate-float mb-4 md:mb-0">
+            <div className="relative w-[80px] md:w-[180px] animate-float">
               <img 
                 src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768685845/ccc_ninmwa.png" 
                 alt="رائد فضاء" 
@@ -142,11 +146,11 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          <ScrollReveal delay={0.4} className="w-full relative z-30">
+          <ScrollReveal delay={0.4} className="w-full">
             <div 
               ref={sliderRef}
               onScroll={handleScroll}
-              className="flex gap-4 md:gap-6 overflow-x-auto py-6 md:py-20 px-[20vw] md:px-[35vw] scrollbar-hide snap-x snap-mandatory w-full"
+              className="flex gap-4 md:gap-6 overflow-x-auto py-8 md:py-20 px-[20vw] md:px-[35vw] scrollbar-hide snap-x snap-mandatory w-full"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {sliderData.map((service, index) => {
@@ -155,15 +159,11 @@ const Hero: React.FC = () => {
                   <Link 
                     key={index} 
                     to={service.path}
-                    className={`flex-shrink-0 w-[65vw] md:w-[550px] aspect-video rounded-xl md:rounded-2xl border-2 md:border-4 bg-[#161720]/40 backdrop-blur-sm overflow-hidden snap-center relative transition-all duration-500 block group ${
+                    className={`flex-shrink-0 w-[60vw] md:w-[550px] aspect-video rounded-xl md:rounded-2xl border-2 md:border-4 bg-[#161720]/40 backdrop-blur-sm overflow-hidden snap-center relative transition-all duration-500 block group ${
                       isActive 
-                        ? 'scale-100 opacity-100' 
-                        : 'border-white/10 scale-90 opacity-40 blur-[2px]'
+                        ? 'border-blue-500/40 shadow-[0_0_15px_rgba(59,130,246,0.2)] scale-100 opacity-100' 
+                        : 'border-blue-500/10 scale-90 opacity-40 blur-[2px]'
                     }`}
-                    style={isActive ? { 
-                      borderColor: service.color,
-                      boxShadow: `0 0 25px ${service.color}aa, 0 0 50px ${service.color}44, inset 0 0 15px ${service.color}33`
-                    } : {}}
                   >
                     <img 
                       src={service.image} 
@@ -171,8 +171,8 @@ const Hero: React.FC = () => {
                       className="w-full h-full object-cover transition-opacity duration-500 opacity-60 group-hover:opacity-100"
                     />
                     <div className={`absolute inset-0 flex flex-col justify-end p-4 md:p-10 text-start bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-                       <h3 className="text-sm md:text-2xl font-bold text-white mb-1 md:mb-2">{service.name}</h3>
-                       <div className="w-6 md:w-12 h-1 rounded-full" style={{ backgroundColor: service.color }}></div>
+                       <h3 className="text-lg md:text-2xl font-bold text-white mb-2">{service.name}</h3>
+                       <div className="w-8 md:w-12 h-1 bg-blue-500 rounded-full" style={{ backgroundColor: service.color }}></div>
                     </div>
                   </Link>
                 );
@@ -181,13 +181,12 @@ const Hero: React.FC = () => {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal delay={0.6} className="mt-2 md:mt-10 flex gap-2 md:gap-3 z-50">
-          {sliderData.map((service, i) => (
+        <ScrollReveal delay={0.6} className="mt-4 md:mt-10 flex gap-2 md:gap-3 z-50">
+          {sliderData.map((_, i) => (
             <button 
               key={i} 
               onClick={() => scrollToIndex(i)}
-              className={`h-1 md:h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-4 md:w-10' : 'w-1 md:w-2 bg-white/20'}`}
-              style={activeIndex === i ? { backgroundColor: service.color } : {}}
+              className={`h-1.5 md:h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-6 md:w-10 bg-blue-500' : 'w-1.5 md:w-2 bg-white/20'}`}
             ></button>
           ))}
         </ScrollReveal>
