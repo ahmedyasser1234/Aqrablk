@@ -117,7 +117,7 @@ const Navbar: React.FC = () => {
             </svg>
           </div>
           
-          <div className={`absolute top-full start-0 mt-4 w-64 glass-nav rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ${isDiscoverOpen ? 'opacity-100 visible translate-y-0 pointer-events-auto' : 'opacity-0 invisible translate-y-2 pointer-events-none'}`}>
+          <div className={`absolute top-full start-0 mt-4 w-64 bg-[#080911]/95 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ${isDiscoverOpen ? 'opacity-100 visible translate-y-0 pointer-events-auto' : 'opacity-0 invisible translate-y-2 pointer-events-none'}`}>
             <div className="flex flex-col py-2">
               {discoverServices.map((service, index) => (
                 <Link 

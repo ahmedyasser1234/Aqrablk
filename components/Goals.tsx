@@ -52,7 +52,7 @@ const Goals: React.FC = () => {
         {/* الحاوية النصية الرئيسية */}
         <ScrollReveal className="relative z-30 flex flex-col items-center max-w-3xl pt-0 md:pt-0">
           {/* عنوان الديسكتوب - مخفي في الموبايل */}
-          <h2 className="hidden md:block text-2xl md:text-[7rem] font-black text-white glow-text mb-2 md:mb-8">
+          <h2 className="hidden md:block text-2xl md:text-[7rem]   glow-text mb-2 md:mb-8">
             {t('goals.title')}
           </h2>
           
