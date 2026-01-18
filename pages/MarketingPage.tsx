@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
 const MarketingPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <div className="pt-24 px-10 pb-12">
       <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 min-h-[60vh]">
@@ -23,7 +22,11 @@ const MarketingPage: React.FC = () => {
         </div>
         <div className="w-full lg:w-1/2">
           <ScrollReveal delay={0.3}>
-            <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686481/Asset_6_2x_wo2ndl.png" alt="رائد فضاء مسوق" className="w-full animate-float" />
+            <img 
+              src={language === 'en' ? 'URL_FOR_ENGLISH_IMAGE_HERE' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686481/Asset_6_2x_wo2ndl.png'} 
+              alt="Marketing Astronaut" 
+              className={`w-full animate-float drop-shadow-[0_0_50px_rgba(236,72,153,0.3)] ${language === 'en' ? 'scale-x-[-1]' : ''}`} 
+            />
           </ScrollReveal>
         </div>
       </section>

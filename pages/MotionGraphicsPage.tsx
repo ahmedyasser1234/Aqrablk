@@ -1,26 +1,27 @@
-
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
 const MotionGraphicsPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="pt-24 px-6 md:px-10 pb-20">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 md:gap-16 min-h-[60vh] md:min-h-[70vh]">
-      <div className="w-full lg:w-1/2 order-1 lg:order-2">
+        {/* حاوية الصورة - تظهر في اليمين للعربية واليسار للإنجليزية بسبب الترتيب واتجاه الصفحة */}
+        <div className="w-full lg:w-1/2 order-1">
           <ScrollReveal delay={0.3}>
             <img 
-              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686487/Asset_2_2x_qaiojz.png" 
-              className="w-full animate-float drop-shadow-[0_0_50px_rgba(59,130,246,0.3)] object-contain"
+              src={language === 'en' ? 'URL_FOR_ENGLISH_IMAGE_HERE' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686487/Asset_2_2x_qaiojz.png'} 
+              className={`w-full animate-float drop-shadow-[0_0_50px_rgba(59,130,246,0.3)] object-contain ${language === 'en' ? 'scale-x-[-1]' : ''}`}
               alt="Motion Graphics Astronaut"
             />
           </ScrollReveal>
         </div>
       
-        <div className="w-full lg:w-1/2 text-center lg:text-start order-2 lg:order-1">
+        {/* حاوية النصوص */}
+        <div className="w-full lg:w-1/2 text-center lg:text-start order-2">
           <ScrollReveal>
             <h1 className="text-4xl md:text-8xl glow-text mb-6 md:mb-8 text-blue-400 font-black">
               {t('page.motion.title')}
@@ -95,9 +96,9 @@ const MotionGraphicsPage: React.FC = () => {
         </div>
       </section>
       
-      {/* Background Decor */}
-      <div className="fixed top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+      {/* Background Decor - Added animate-pulse for star-like energy */}
+      <div className="fixed top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse"></div>
+      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
     </div>
   );
 };

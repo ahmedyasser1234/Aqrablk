@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
 const WebDesignPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <div className="pt-24 px-10 pb-12">
       <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 min-h-[60vh]">
@@ -23,7 +22,11 @@ const WebDesignPage: React.FC = () => {
         </div>
         <div className="w-full lg:w-1/2">
           <ScrollReveal delay={0.3}>
-            <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686522/Asset_4_2x_vu9c2h.png" alt="رائد فضاء مبرمج" className="w-full animate-float drop-shadow-[0_0_50px_rgba(168,85,247,0.2)]" />
+            <img 
+              src={language === 'en' ? 'URL_FOR_ENGLISH_IMAGE_HERE' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686522/Asset_4_2x_vu9c2h.png'} 
+              alt="Web Design Astronaut" 
+              className={`w-full animate-float drop-shadow-[0_0_50px_rgba(168,85,247,0.2)] ${language === 'en' ? 'scale-x-[-1]' : ''}`} 
+            />
           </ScrollReveal>
         </div>
       </section>

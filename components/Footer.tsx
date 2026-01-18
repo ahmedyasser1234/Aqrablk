@@ -9,10 +9,20 @@ const Footer: React.FC = () => {
     <footer className="relative w-full min-h-[105vh] flex items-end pb-12 px-10 md:px-20 overflow-hidden">
       {/* خلفية الفوتر */}
       <div className="absolute inset-0 z-0">
+        {/* صورة الموبايل - تظهر فقط في الشاشات الصغيرة */}
+        <img 
+          src="/public/images/footer-mobile.png" 
+          alt="Astronaut on Moon Mobile" 
+          className={`w-full h-full object-cover object-bottom opacity-80 block md:hidden ${language === 'en' ? 'scale-x-[-1]' : ''}`}
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+        {/* صورة الديسكتوب - تظهر فقط في الشاشات الكبيرة */}
         <img 
           src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686133/footer_cz659n.png" 
-          alt="Astronaut on Moon" 
-          className={`w-full h-full object-cover object-bottom opacity-80 ${language === 'en' ? 'scale-x-[-1]' : ''}`}
+          alt="Astronaut on Moon Desktop" 
+          className={`w-full h-full object-cover object-bottom opacity-80 hidden md:block ${language === 'en' ? 'scale-x-[-1]' : ''}`}
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = 'none';
           }}
