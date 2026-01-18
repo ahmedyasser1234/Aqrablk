@@ -58,7 +58,7 @@ const Goals: React.FC = () => {
             <img 
               src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686171/Asset_8_rhau52.png" 
               alt="لوحة الهدف" 
-              className={`w-full h-auto ${language === 'en' ? 'scale-x-[1]' : ''}`}
+              className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
           </div>
