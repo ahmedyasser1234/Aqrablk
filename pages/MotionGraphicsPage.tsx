@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
@@ -96,9 +97,9 @@ const MotionGraphicsPage: React.FC = () => {
         </div>
       </section>
       
-      {/* Background Decor - Added animate-pulse for star-like energy */}
-      <div className="fixed top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse"></div>
-      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
+      {/* Background Decor */}
+      <div className="fixed top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
     </div>
   );
 };

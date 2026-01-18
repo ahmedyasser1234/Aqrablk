@@ -12,8 +12,11 @@ const PhotographyPage: React.FC = () => {
         {/* حاوية الصورة - تظهر في اليمين للعربية واليسار للإنجليزية بسبب الترتيب واتجاه الصفحة */}
         <div className="w-full lg:w-1/2 order-1">
           <ScrollReveal delay={0.3}>
-          <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686527/Asset_3_2x_wt6qwj.png" alt="Photography Astronaut" className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`} />
-
+            <img 
+              src={language === 'en' ? 'URL_FOR_ENGLISH_IMAGE_HERE' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686527/Asset_3_2x_wt6qwj.png'} 
+              className={`w-full animate-float drop-shadow-[0_0_50px_rgba(59,130,246,0.3)] object-contain ${language === 'en' ? 'scale-x-[-1]' : ''}`} 
+              alt="Photography Astronaut" 
+            />
           </ScrollReveal>
         </div>
 
