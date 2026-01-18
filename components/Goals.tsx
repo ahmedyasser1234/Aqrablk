@@ -36,7 +36,7 @@ const Goals: React.FC = () => {
           <img 
             src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686175/cccc_irddlo.png" 
             alt="رائد فضاء" 
-            className={`w-full h-auto ${language === 'en' ? 'scale-x-[1]' : ''}`}
+            className={`w-full h-auto ${language === 'en' ? 'scale-x-[-1]' : ''}`}
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
         </div>

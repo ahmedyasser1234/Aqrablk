@@ -94,8 +94,7 @@ const Hero: React.FC = () => {
               <div className="absolute end-full top-0 lg:top-1/2 -translate-y-1/2 w-16 h-16 lg:w-44 lg:h-44 animate-float z-40 pointer-events-none translate-x-1/2 lg:translate-x-0 opacity-30 lg:opacity-100">
                 <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768684802/Asset_1_fwpljm.png" alt="نيزك ثابت" className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.15)]" />
               </div>
-              <br />
-              <br />
+              
               <h1 className="text-2xl md:text-4xl lg:text-[7rem] glow-text leading-[1.1] md:leading-[0.85] font-black">
                 {t('hero.title')}
               </h1>
