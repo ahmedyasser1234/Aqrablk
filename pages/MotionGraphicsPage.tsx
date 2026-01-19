@@ -8,8 +8,7 @@ const motionVideos = [
   "0NgXkHQTt4U"
 ];
 
-// قائمة فيديوهات الوايت بورد - يمكنك إضافة معرف الفيديو (ID) هنا ليظهر في القسم تلقائياً
-// ID هو الجزء الأخير من رابط اليوتيوب، مثلاً في https://www.youtube.com/embed/k9M60YJJ3iE الـ ID هو k9M60YJJ3iE
+// قائمة فيديوهات الوايت بورد
 const whiteboardVideos = [
   "k9M60YJJ3iE",
   "jX8rBu-4Z2U"
@@ -20,6 +19,39 @@ const MotionGraphicsPage: React.FC = () => {
 
   return (
     <div className="pt-24 px-6 md:px-10 pb-20">
+      <style>{`
+        @keyframes border-rotate {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .glowing-border-box {
+          position: relative;
+          overflow: hidden;
+          z-index: 0;
+          padding: 3px; /* Border width */
+          border-radius: 2rem;
+        }
+        .glowing-border-box::before {
+          content: '';
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          top: -50%;
+          left: -50%;
+          background: conic-gradient(transparent, transparent, transparent, var(--glow-color));
+          animation: border-rotate 4s linear infinite;
+          z-index: -2;
+        }
+        .glowing-border-box::after {
+          content: '';
+          position: absolute;
+          inset: 3px;
+          background: #080911;
+          border-radius: calc(2rem - 3px);
+          z-index: -1;
+        }
+      `}</style>
+
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 md:gap-16 min-h-[60vh] md:min-h-[70vh]">
         {/* حاوية الصورة - تظهر في اليمين للعربية واليسار للإنجليزية بسبب الترتيب واتجاه الصفحة */}
@@ -67,16 +99,21 @@ const MotionGraphicsPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {motionVideos.map((id, index) => (
             <ScrollReveal key={`motion-${index}`} delay={index * 0.1}>
-              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all overflow-hidden group relative shadow-2xl">
-                 <iframe 
-                   src={`https://www.youtube.com/embed/${id}`} 
-                   title={`Motion Video ${index + 1}`}
-                   className="w-full h-full"
-                   frameBorder="0" 
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                   referrerPolicy="strict-origin-when-cross-origin" 
-                   allowFullScreen
-                 ></iframe>
+              <div 
+                className="glowing-border-box aspect-video shadow-2xl"
+                style={{ '--glow-color': '#3b82f6' } as React.CSSProperties}
+              >
+                 <div className="w-full h-full rounded-[calc(2rem-3px)] overflow-hidden relative z-10">
+                   <iframe 
+                     src={`https://www.youtube.com/embed/${id}`} 
+                     title={`Motion Video ${index + 1}`}
+                     className="w-full h-full"
+                     frameBorder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     referrerPolicy="strict-origin-when-cross-origin" 
+                     allowFullScreen
+                   ></iframe>
+                 </div>
               </div>
             </ScrollReveal>
           ))}
@@ -93,23 +130,28 @@ const MotionGraphicsPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {whiteboardVideos.map((id, index) => (
             <ScrollReveal key={`whiteboard-${index}`} delay={index * 0.1}>
-              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all overflow-hidden group relative shadow-2xl">
-                 <iframe 
-                   src={`https://www.youtube.com/embed/${id}`} 
-                   title={`Whiteboard Video ${index + 1}`}
-                   className="w-full h-full"
-                   frameBorder="0" 
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                   referrerPolicy="strict-origin-when-cross-origin" 
-                   allowFullScreen
-                 ></iframe>
+              <div 
+                className="glowing-border-box aspect-video shadow-2xl"
+                style={{ '--glow-color': '#a855f7' } as React.CSSProperties}
+              >
+                 <div className="w-full h-full rounded-[calc(2rem-3px)] overflow-hidden relative z-10">
+                   <iframe 
+                     src={`https://www.youtube.com/embed/${id}`} 
+                     title={`Whiteboard Video ${index + 1}`}
+                     className="w-full h-full"
+                     frameBorder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     referrerPolicy="strict-origin-when-cross-origin" 
+                     allowFullScreen
+                   ></iframe>
+                 </div>
               </div>
             </ScrollReveal>
           ))}
         </div>
       </section>
       
-      {/* Background Decor - Added animate-pulse for star-like energy */}
+      {/* Background Decor */}
       <div className="fixed top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse"></div>
       <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
     </div>
