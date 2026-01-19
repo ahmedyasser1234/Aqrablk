@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
@@ -40,7 +39,14 @@ const StudioRentalPage: React.FC = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.4} className="flex gap-4 justify-center lg:justify-start">
-            <button className="px-10 py-4 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold transition-all">{t('common.check_availability')}</button>
+            <a 
+              href="https://wa.me/201099822822" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-10 py-4 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold transition-all inline-block text-center"
+            >
+              {t('common.check_availability')}
+            </a>
           </ScrollReveal>
         </div>
         <div className="w-full lg:w-1/2 relative">
