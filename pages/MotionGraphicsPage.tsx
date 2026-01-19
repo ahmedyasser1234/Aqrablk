@@ -14,6 +14,9 @@ const whiteboardVideos = [
   "jX8rBu-4Z2U"
 ];
 
+// مصفوفة الألوان للتنويع (أزرق، بنفسجي، تركواز)
+const borderColors = ['#3b82f6', '#a855f7', '#22d3ee'];
+
 const MotionGraphicsPage: React.FC = () => {
   const { t, language } = useLanguage();
 
@@ -38,8 +41,11 @@ const MotionGraphicsPage: React.FC = () => {
           height: 200%;
           top: -50%;
           left: -50%;
-          background: conic-gradient(transparent, transparent, transparent, var(--glow-color));
-          animation: border-rotate 4s linear infinite;
+          /* تم تقليل الشفافية قليلاً وزيادة كثافة اللون للظهور مع البلور */
+          background: conic-gradient(transparent 20%, transparent 40%, var(--glow-color));
+          /* تسريع الحركة من 4s إلى 2.5s وإضافة بلور للإضاءة الخفية */
+          animation: border-rotate 2.5s linear infinite; 
+          filter: blur(10px); 
           z-index: -2;
         }
         .glowing-border-box::after {
@@ -101,7 +107,8 @@ const MotionGraphicsPage: React.FC = () => {
             <ScrollReveal key={`motion-${index}`} delay={index * 0.1}>
               <div 
                 className="glowing-border-box aspect-video shadow-2xl"
-                style={{ '--glow-color': '#3b82f6' } as React.CSSProperties}
+                // تغيير اللون بناءً على الترتيب في الصف
+                style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
               >
                  <div className="w-full h-full rounded-[calc(2rem-3px)] overflow-hidden relative z-10">
                    <iframe 
@@ -132,7 +139,8 @@ const MotionGraphicsPage: React.FC = () => {
             <ScrollReveal key={`whiteboard-${index}`} delay={index * 0.1}>
               <div 
                 className="glowing-border-box aspect-video shadow-2xl"
-                style={{ '--glow-color': '#a855f7' } as React.CSSProperties}
+                // تغيير اللون بناءً على الترتيب في الصف
+                style={{ '--glow-color': borderColors[(index + 1) % borderColors.length] } as React.CSSProperties}
               >
                  <div className="w-full h-full rounded-[calc(2rem-3px)] overflow-hidden relative z-10">
                    <iframe 
