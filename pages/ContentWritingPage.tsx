@@ -58,39 +58,8 @@ const ContentWritingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* قسم أعمالنا الجديد */}
-      <section className="py-16 max-w-7xl mx-auto border-t border-white/5 mt-10">
-        <ScrollReveal>
-          <h2 className="text-3xl md:text-5xl text-center glow-text mb-12 font-black text-blue-300">
-             {t('common.portfolio')}
-          </h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-          {contentVideos.map((id, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
-              <div 
-                className="glowing-border-box aspect-video"
-                style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
-              >
-                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative z-10">
-                   <iframe 
-                     src={`https://www.youtube.com/embed/${id}`} 
-                     title={`Content Video ${index + 1}`}
-                     className="w-full h-full"
-                     frameBorder="0" 
-                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                     referrerPolicy="strict-origin-when-cross-origin" 
-                     allowFullScreen
-                   ></iframe>
-                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
       {/* قسم المميزات (بنفس تصميم صفحة الويب) */}
-      <section className="py-12 max-w-7xl mx-auto">
+      <section className="py-12 max-w-7xl mx-auto mt-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <ScrollReveal delay={0.1}>
             <div 
@@ -127,6 +96,37 @@ const ContentWritingPage: React.FC = () => {
               </div>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* قسم أعمالنا الجديد */}
+      <section className="py-16 max-w-7xl mx-auto border-t border-white/5 mt-10">
+        <ScrollReveal>
+          <h2 className="text-3xl md:text-5xl text-center glow-text mb-12 font-black text-blue-300">
+             {t('common.portfolio')}
+          </h2>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+          {contentVideos.map((id, index) => (
+            <ScrollReveal key={index} delay={index * 0.1}>
+              <div 
+                className="glowing-border-box aspect-video"
+                style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
+              >
+                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative z-10">
+                   <iframe 
+                     src={`https://www.youtube.com/embed/${id}`} 
+                     title={`Content Video ${index + 1}`}
+                     className="w-full h-full"
+                     frameBorder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     referrerPolicy="strict-origin-when-cross-origin" 
+                     allowFullScreen
+                   ></iframe>
+                 </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 
