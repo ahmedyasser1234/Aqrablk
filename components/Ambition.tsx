@@ -24,7 +24,8 @@ const Ambition: React.FC = () => {
       {/* حاوية النص - تم تعديلها لتكون في المنتصف على الديسكتوب */}
       <div className="relative z-30 max-w-5xl w-full flex flex-col items-center text-center pt-24 md:pt-0">
         <ScrollReveal>
-          <h2 className="inline-block text-4xl md:text-8xl font-black text-purple-500 mb-6 md:mb-10 px-10 py-3 md:px-16 md:py-6 border-2 border-purple-500 rounded-full shadow-[0_0_40px_rgba(168,85,247,0.4)] glow-text">
+          {/* تم تصغير الخط والحواف */}
+          <h2 className="inline-block text-2xl md:text-2xl  text-purple-500 mb-6 md:mb-10 px-8 py-2 md:px-12 md:py-4 border-2 border-purple-500 rounded-full shadow-[0_0_25px_rgba(168,85,247,0.4)] glow-text">
             {t('ambition.title')}
           </h2>
         </ScrollReveal>
