@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from './ScrollReveal';
@@ -25,7 +24,7 @@ const Goals: React.FC = () => {
           </div>
           
           {/* العنوان - بالمنتصف */}
-          <h2 className="text-2xl font-black text-white glow-text flex-1 text-center px-1" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+          <h2 className="text-lg font-black text-cyan-400 flex-1 text-center mx-2 px-3 py-2 border border-cyan-400 rounded-full shadow-[0_0_15px_rgba(34,211,238,0.3)] glow-text" dir={language === 'ar' ? 'rtl' : 'ltr'}>
             {t('goals.title')}
           </h2>
 
@@ -52,7 +51,7 @@ const Goals: React.FC = () => {
         {/* الحاوية النصية الرئيسية */}
         <ScrollReveal className="relative z-30 flex flex-col items-center max-w-3xl pt-0 md:pt-0">
           {/* عنوان الديسكتوب - مخفي في الموبايل */}
-          <h2 className="hidden md:block text-2xl md:text-[7rem]   glow-text mb-2 md:mb-8">
+          <h2 className="hidden md:inline-block text-4xl md:text-7xl font-black text-cyan-400 mb-8 px-16 py-4 border-2 border-cyan-400 rounded-full shadow-[0_0_40px_rgba(34,211,238,0.4)] glow-text">
             {t('goals.title')}
           </h2>
           
