@@ -9,7 +9,8 @@ const IdeaPlanting: React.FC = () => {
       
       <div className="relative z-10 max-w-4xl">
         <ScrollReveal>
-          <h2 className="inline-block text-4xl md:text-8xl font-black text-emerald-400 mb-12 px-10 py-4 md:px-16 md:py-6 border-2 border-emerald-400 rounded-full shadow-[0_0_40px_rgba(52,211,153,0.4)] glow-text tracking-tight leading-none">
+          {/* تم تصغير الخط والحواف */}
+          <h2 className="inline-block text-2xl md:text-2xl  text-emerald-400 mb-12 px-8 py-2 md:px-12 md:py-4 border-2 border-emerald-400 rounded-full shadow-[0_0_25px_rgba(52,211,153,0.4)] glow-text ">
             {t('idea.title')}
           </h2>
         </ScrollReveal>
