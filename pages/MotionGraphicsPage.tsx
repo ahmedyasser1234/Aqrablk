@@ -3,6 +3,13 @@ import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
+// قائمة فيديوهات الوايت بورد - يمكنك إضافة معرف الفيديو (ID) هنا ليظهر في القسم تلقائياً
+// ID هو الجزء الأخير من رابط اليوتيوب، مثلاً في https://www.youtube.com/embed/k9M60YJJ3iE الـ ID هو k9M60YJJ3iE
+const whiteboardVideos = [
+  "k9M60YJJ3iE",
+  "jX8rBu-4Z2U"
+];
+
 const MotionGraphicsPage: React.FC = () => {
   const { t, language } = useLanguage();
 
@@ -14,9 +21,9 @@ const MotionGraphicsPage: React.FC = () => {
         <div className="w-full lg:w-1/2 order-1">
           <ScrollReveal delay={0.3}>
             <img 
-              src={language === 'en' ? 'URL_FOR_ENGLISH_IMAGE_HERE' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686487/Asset_2_2x_qaiojz.png'} 
-              className={`w-full animate-float drop-shadow-[0_0_50px_rgba(59,130,246,0.3)] object-contain ${language === 'en' ? 'scale-x-[-1]' : ''}`}
-              alt="Motion Graphics Astronaut"
+              src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686487/Asset_2_2x_qaiojz.png" 
+              alt="Motion Astronaut" 
+              className={`w-full h-auto animate-float drop-shadow-[0_0_50px_rgba(59,130,246,0.3)] ${language === 'en' ? 'scale-x-[-1]' : ''}`} 
             />
           </ScrollReveal>
         </div>
@@ -79,27 +86,27 @@ const MotionGraphicsPage: React.FC = () => {
           </h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-          {[1, 2, 3].map((i, index) => (
-            <ScrollReveal key={`whiteboard-${i}`} delay={index * 0.1}>
-              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all cursor-pointer overflow-hidden group relative">
-                <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="w-full h-full bg-gray-900/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                   <div className="flex flex-col items-center gap-4">
-                     <span className="text-4xl">🖊️</span>
-                     <span className="text-white/40 text-sm md:text-base font-medium tracking-widest uppercase">
-                       {t('common.work_video')} {i}
-                     </span>
-                   </div>
-                </div>
+          {whiteboardVideos.map((id, index) => (
+            <ScrollReveal key={`whiteboard-${index}`} delay={index * 0.1}>
+              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all overflow-hidden group relative shadow-2xl">
+                 <iframe 
+                   src={`https://www.youtube.com/embed/${id}`} 
+                   title={`Whiteboard Video ${index + 1}`}
+                   className="w-full h-full"
+                   frameBorder="0" 
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                   referrerPolicy="strict-origin-when-cross-origin" 
+                   allowFullScreen
+                 ></iframe>
               </div>
             </ScrollReveal>
           ))}
         </div>
       </section>
       
-      {/* Background Decor */}
-      <div className="fixed top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+      {/* Background Decor - Added animate-pulse for star-like energy */}
+      <div className="fixed top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse"></div>
+      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
     </div>
   );
 };
