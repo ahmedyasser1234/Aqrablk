@@ -51,7 +51,7 @@ const Goals: React.FC = () => {
         {/* الحاوية النصية الرئيسية */}
         <ScrollReveal className="relative z-30 flex flex-col items-center max-w-3xl pt-0 md:pt-0">
           {/* عنوان الديسكتوب - مخفي في الموبايل - تم تصغيره */}
-          <h2 className="hidden md:inline-block text-2xl md:text-2xl  text-cyan-400 mb-8 px-10 py-3 border-2 border-cyan-400 rounded-full shadow-[0_0_25px_rgba(34,211,238,0.4)] glow-text">
+          <h2 className="hidden md:inline-block text-2xl md:text-4xl font-black text-cyan-400 mb-8 px-10 py-3 border-2 border-cyan-400 rounded-full shadow-[0_0_25px_rgba(34,211,238,0.4)] glow-text">
             {t('goals.title')}
           </h2>
           
