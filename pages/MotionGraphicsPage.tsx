@@ -59,9 +59,14 @@ const MotionGraphicsPage: React.FC = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.4} className="flex gap-4 justify-center lg:justify-start">
-            <button className="px-8 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all">
+            <a 
+              href="https://wa.me/201099822822" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all inline-block text-center"
+            >
               {t('common.order_now')}
-            </button>
+            </a>
             <button className="px-8 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-all">
               {t('common.view_work')}
             </button>
