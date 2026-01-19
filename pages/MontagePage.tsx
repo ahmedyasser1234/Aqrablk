@@ -6,7 +6,9 @@ import ScrollReveal from '../components/ScrollReveal';
 const horizontalMontageVideos = [
   "CFC9RlT4iag",
   "OF2HItDjrFA",
+  "VtiITVEEMcw",
   "GnU8Zt5mBVw"
+  
 ];
 
 const MontagePage: React.FC = () => {
