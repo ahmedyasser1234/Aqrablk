@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type Language = 'ar' | 'en';
@@ -25,11 +24,12 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.desc2': 'ولأن الخروج خارج الكوكب لا يصلح للجميع، فلدينا إمكانيات تدفعنا للمغامرة بكل أريحية وثقة.',
     // Services Section
     'services.discover_title': 'اكتشـــــــــــف',
-    'services.main_title': 'خدمـــــــــاتنا',
+    'services.main_title': 'خدمــــــــ-ــــــــاتنا',
     'services.more': 'الــمــزيــــد',
     'service.motion.desc': 'موشن جرافيك يطيّر فكرتك في مدار جديد، ويحوّل رسالتك لقصة كونية تلفت انتبــــاه عميـــلك مــن أول ثــانــيــة.',
     'service.montage.desc': 'فن المونتاج هو روح الفيديو، نجمع لقطاتك بلمسة احترافية تحول المشاهد البسيطة إلى تجربة سينمائية متكاملة ومؤثرة.',
     'service.photography.desc': 'اســتــوديــو مجهّــز كأنــك عــلــى متــن مــركبــة تصويـــر؛ إضـــاءة، معـــدات، ومساحـــة جاهــزة لأي فـــكـــرة تــحــب تــطــلقــهـــا فــــي الــسمــاء.',
+    'service.design.desc': 'في قسم التصميم نحول الخيال إلى لوحات حية؛ فريقنا من الرسامين والمصممين يصنع عوالم بصرية تبدو وكأنها آتية من خارج الكوكب.',
     'service.web.desc': 'نصــمــم موقــع يخلــى بــراندك محطـــة مضيئــة في الفضــاء الرقمــى ، سهــل الوصـــول ، سـريــع ويـــســتــقبــــل زوارك كــــأنــــ_ــــهم ضـــيــوف VIP',
     'service.content.desc': 'محتـــــوى مكتــــوب مخصــــوص لبــــرانـــدك كلمـــــاتهـــا كـــأنهـــا إشـــارت ضوئيــــة توضـــح فكرتـــك تقنــــع عميلــك وتخليـــه يخــتـــارك من بــين كل الكواكب',
     'service.marketing.desc': 'استـــراتيجيـــات تسويـــق رقميـــة توصــل بــرانـــدك لأقـــرب مـــدار لعميلـــك، بحمــلات مدروســـة تـــرفــــع وعـــــي العلامــــة وتحـــــول الــفضــــولــيــيــن لعمــــلاء دائــمــيــن.',
@@ -37,6 +37,7 @@ const translations: Record<Language, Record<string, string>> = {
     'service.motion': 'موشن جرافيك',
     'service.montage': 'مونتاج',
     'service.photography': 'تصوير إحترافي',
+    'service.design': 'التصميم',
     'service.studio': 'تأجير إستوديو',
     'service.web': 'تصميم وتطوير مواقع الويب',
     'service.content': 'كتابة المحتوى',
@@ -88,6 +89,12 @@ const translations: Record<Language, Record<string, string>> = {
     'page.photography.inside_studio': 'من داخل الاستوديو',
     'page.photography.session': 'جلسة تصوير',
 
+    // Page: Design
+    'page.design.title': 'التصميــــــم الإبداعي',
+    'page.design.desc': 'نحن لا نصمم فقط، بل نصنع هوية بصرية تتحدث عنك. فريقنا من المصممين يحول خيالك إلى حقيقة بصرية تسبق العصر.',
+    'page.design.gallery_graphic': 'تصميم الجرافيك',
+    'page.design.gallery_branding': 'الهوية البصرية واللوجو',
+
     // Page: Studio Rental
     'page.studio.title': 'تأجيـــر إستوديــــو',
     'page.studio.desc': 'مساحة إبداعية متكاملة تحت تصرفك. نوفر لك الخصوصية، الإضاءة الاحترافية، وكافة الإكسسوارات التي تحتاجها لتنفيذ مشروعك الفني بأعلى جودة.',
@@ -110,6 +117,7 @@ const translations: Record<Language, Record<string, string>> = {
     'page.web.feat2_desc': 'مواقعنا تعمل بأعلى سرعة ممكنة لتصدر نتائج البحث وتحسين الأداء.',
     'page.web.feat3_title': 'تجاوب كامل',
     'page.web.feat3_desc': 'موقعك سيبدو رائعاً على الجوال، التابلت، والكمبيوتر بنفس الكفاءة.',
+    'page.web.shopify_portfolio': 'أعمال شوبيفاي',
 
     // Page: Content Writing
     'page.content.title': 'كتابة المحتوى',
@@ -191,6 +199,7 @@ const translations: Record<Language, Record<string, string>> = {
     'service.motion.desc': 'Motion graphics fly your idea into a new orbit, transforming your message into a cosmic story that catches your client\'s attention from the first second.',
     'service.montage.desc': 'The art of montage is the soul of the video; we combine your shots with a professional touch that turns simple scenes into a complete and impactful cinematic experience.',
     'service.photography.desc': 'A studio equipped as if you were on a filming craft; lighting, equipment, and a space ready for any idea you want to launch into the sky.',
+    'service.design.desc': 'In the design section, we transform imagination into living paintings; our team of painters and designers creates visual worlds that look like they\'re coming from off-planet.',
     'service.web.desc': 'We design a website that makes your brand a bright station in digital space—accessible, fast, and welcoming your visitors as VIP guests.',
     'service.content.desc': 'Custom written content for your brand, words like light signals that clarify your idea, convince your client, and make them choose you among all planets.',
     'service.marketing.desc': 'Digital marketing strategies that bring your brand to the closest orbit of your client, with well-studied campaigns that raise brand awareness and turn the curious into permanent clients.',
@@ -198,6 +207,7 @@ const translations: Record<Language, Record<string, string>> = {
     'service.motion': 'Motion Graphics',
     'service.montage': 'Montage',
     'service.photography': 'Professional Photography',
+    'service.design': 'Design',
     'service.studio': 'Studio Rental',
     'service.web': 'Web Design & Development',
     'service.content': 'Content Writing',
@@ -249,6 +259,12 @@ const translations: Record<Language, Record<string, string>> = {
     'page.photography.inside_studio': 'Inside the Studio',
     'page.photography.session': 'Photo Session',
 
+    // Page: Design
+    'page.design.title': 'Creative Design',
+    'page.design.desc': 'We don\'t just design, we create a visual identity that speaks for you. Our team of designers turns your imagination into a visual reality that leads the era.',
+    'page.design.gallery_graphic': 'Graphic Design',
+    'page.design.gallery_branding': 'Branding & Logo Design',
+
     // Page: Studio Rental
     'page.studio.title': 'Studio Rental',
     'page.studio.desc': 'A complete creative space at your disposal. We provide privacy, professional lighting, and all the accessories you need to execute your artistic project with the highest quality.',
@@ -271,6 +287,7 @@ const translations: Record<Language, Record<string, string>> = {
     'page.web.feat2_desc': 'Our sites run at maximum speed to top search results and improve performance.',
     'page.web.feat3_title': 'Fully Responsive',
     'page.web.feat3_desc': 'Your site will look amazing on mobile, tablet, and desktop with equal efficiency.',
+    'page.web.shopify_portfolio': 'Shopify Portfolio',
 
     // Page: Content Writing
     'page.content.title': 'Content Writing',
@@ -336,11 +353,6 @@ const translations: Record<Language, Record<string, string>> = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-/**
- * LanguageProvider implementation:
- * - Removed misplaced UI code that used ScrollReveal and caused errors.
- * - Correctly returns LanguageContext.Provider wrapping children.
- */
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('ar');
 

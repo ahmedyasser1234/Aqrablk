@@ -30,6 +30,7 @@ const Navbar: React.FC = () => {
     { name: t('service.motion'), path: '/services/motion-graphics' },
     { name: t('service.montage'), path: '/services/montage' },
     { name: t('service.photography'), path: '/services/photography' },
+    { name: t('service.design'), path: '/services/design' },
     { name: t('service.studio'), path: '/services/studio-rental' },
     { name: t('service.web'), path: '/services/web-design' },
     { name: t('service.content'), path: '/services/content-writing' },

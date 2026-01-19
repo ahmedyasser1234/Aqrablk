@@ -1,13 +1,29 @@
-
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
+
+// ألوان التوهج (أزرق، بنفسجي، سماوي)
+const borderColors = ['#3b82f6', '#a855f7', '#22d3ee'];
 
 const AboutPage: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
     <div className="pt-24 md:pt-32 px-6 md:px-10 pb-20 overflow-x-hidden">
+      <style>{`
+        .glowing-border-box {
+          position: relative;
+          overflow: hidden;
+          z-index: 0;
+          border-radius: 2.5rem;
+          /* تأثير التوهج الثابت */
+          box-shadow: 0 0 30px -5px var(--glow-color);
+          border: 1px solid var(--glow-color);
+        }
+        .glowing-border-box-small {
+          border-radius: 2rem;
+        }
+      `}</style>
       <section className="max-w-7xl mx-auto">
         
         {/* Header Section */}
@@ -63,30 +79,43 @@ const AboutPage: React.FC = () => {
             </h2>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+            {/* Vision */}
             <ScrollReveal direction="right" className="h-full">
-              <div className="p-8 md:p-12 rounded-[2.5rem] bg-white/5 border border-white/10 h-full flex flex-col items-center justify-center text-center hover:bg-white/10 transition-all group">
-                <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-3xl">🔭</span>
+              <div 
+                className="glowing-border-box h-full"
+                style={{ '--glow-color': borderColors[0] } as React.CSSProperties}
+              >
+                <div className="p-8 md:p-12 rounded-[2.5rem] bg-[#080911]/80 backdrop-blur-sm border border-white/5 h-full flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all group relative z-10">
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span className="text-3xl">🔭</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-blue-400">
+                    {t('page.about.vision_title')}
+                  </h3>
+                  <p className="text-gray-300 text-sm md:text-lg font-light leading-relaxed">
+                    {t('page.about.vision_p')}
+                  </p>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-blue-400">
-                  {t('page.about.vision_title')}
-                </h3>
-                <p className="text-gray-300 text-sm md:text-lg font-light leading-relaxed">
-                  {t('page.about.vision_p')}
-                </p>
               </div>
             </ScrollReveal>
+            
+            {/* Mission */}
             <ScrollReveal direction="left" className="h-full" delay={0.2}>
-              <div className="p-8 md:p-12 rounded-[2.5rem] bg-white/5 border border-white/10 h-full flex flex-col items-center justify-center text-center hover:bg-white/10 transition-all group">
-                <div className="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-3xl">🚀</span>
+              <div 
+                className="glowing-border-box h-full"
+                style={{ '--glow-color': borderColors[1] } as React.CSSProperties}
+              >
+                <div className="p-8 md:p-12 rounded-[2.5rem] bg-[#080911]/80 backdrop-blur-sm border border-white/5 h-full flex flex-col items-center justify-center text-center hover:bg-white/5 transition-all group relative z-10">
+                  <div className="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span className="text-3xl">🚀</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-purple-400">
+                    {t('page.about.mission_title')}
+                  </h3>
+                  <p className="text-gray-300 text-sm md:text-lg font-light leading-relaxed">
+                    {t('page.about.mission_p')}
+                  </p>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-purple-400">
-                  {t('page.about.mission_title')}
-                </h3>
-                <p className="text-gray-300 text-sm md:text-lg font-light leading-relaxed">
-                  {t('page.about.mission_p')}
-                </p>
               </div>
             </ScrollReveal>
           </div>
@@ -101,36 +130,51 @@ const AboutPage: React.FC = () => {
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <ScrollReveal delay={0.1}>
-              <div className="p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:border-blue-500/50 transition-all text-center h-full">
-                <div className="text-5xl mb-6">🎯</div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
-                  {t('page.about.feat1_title')}
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base font-light">
-                  {t('page.about.feat1_desc')}
-                </p>
+              <div 
+                className="glowing-border-box glowing-border-box-small h-full"
+                style={{ '--glow-color': borderColors[0] } as React.CSSProperties}
+              >
+                <div className="p-8 md:p-10 rounded-[2rem] bg-[#080911]/80 backdrop-blur-sm border border-white/5 hover:bg-white/5 transition-all text-center h-full relative z-10">
+                  <div className="text-5xl mb-6">🎯</div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                    {t('page.about.feat1_title')}
+                  </h3>
+                  <p className="text-gray-400 text-sm md:text-base font-light">
+                    {t('page.about.feat1_desc')}
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
-              <div className="p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-center h-full">
-                <div className="text-5xl mb-6">💡</div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
-                  {t('page.about.feat2_title')}
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base font-light">
-                  {t('page.about.feat2_desc')}
-                </p>
+              <div 
+                className="glowing-border-box glowing-border-box-small h-full"
+                style={{ '--glow-color': borderColors[1] } as React.CSSProperties}
+              >
+                <div className="p-8 md:p-10 rounded-[2rem] bg-[#080911]/80 backdrop-blur-sm border border-white/5 hover:bg-white/5 transition-all text-center h-full relative z-10">
+                  <div className="text-5xl mb-6">💡</div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                    {t('page.about.feat2_title')}
+                  </h3>
+                  <p className="text-gray-400 text-sm md:text-base font-light">
+                    {t('page.about.feat2_desc')}
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.5}>
-              <div className="p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-500/50 transition-all text-center h-full">
-                <div className="text-5xl mb-6">🤝</div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
-                  {t('page.about.feat3_title')}
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base font-light">
-                  {t('page.about.feat3_desc')}
-                </p>
+              <div 
+                className="glowing-border-box glowing-border-box-small h-full"
+                style={{ '--glow-color': borderColors[2] } as React.CSSProperties}
+              >
+                <div className="p-8 md:p-10 rounded-[2rem] bg-[#080911]/80 backdrop-blur-sm border border-white/5 hover:bg-white/5 transition-all text-center h-full relative z-10">
+                  <div className="text-5xl mb-6">🤝</div>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-white">
+                    {t('page.about.feat3_title')}
+                  </h3>
+                  <p className="text-gray-400 text-sm md:text-base font-light">
+                    {t('page.about.feat3_desc')}
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
           </div>

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
@@ -36,38 +35,33 @@ const ServicesPage: React.FC = () => {
   const montageTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const webTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const clearAllTimers = () => {
+  const clearAllTimers = useCallback(() => {
     if (videoTimerRef.current) clearInterval(videoTimerRef.current);
     if (montageTimerRef.current) clearInterval(montageTimerRef.current);
     if (webTimerRef.current) clearInterval(webTimerRef.current);
     videoTimerRef.current = null;
     montageTimerRef.current = null;
     webTimerRef.current = null;
-  };
+  }, []);
 
   const nextVideo = useCallback(() => {
     if (!playingVideo) setActiveVideo((prev) => (prev + 1) % youtubeVideos.length);
-  }, [playingVideo]);
-
-  const prevVideo = useCallback(() => {
-    if (!playingVideo) setActiveVideo((prev) => (prev - 1 + youtubeVideos.length) % youtubeVideos.length);
   }, [playingVideo]);
 
   const nextMontage = useCallback(() => {
     if (!playingMontage) setActiveMontage((prev) => (prev + 1) % montageVideos.length);
   }, [playingMontage]);
 
-  const prevMontage = useCallback(() => {
-    if (!playingMontage) setActiveMontage((prev) => (prev - 1 + montageVideos.length) % montageVideos.length);
-  }, [playingMontage]);
-
   const nextWeb = useCallback(() => {
     setActiveWeb((prev) => (prev + 1) % webProjects.length);
   }, []);
 
-  const prevWeb = useCallback(() => {
-    setActiveWeb((prev) => (prev - 1 + webProjects.length) % webProjects.length);
-  }, []);
+  const startAllTimers = useCallback(() => {
+    clearAllTimers();
+    videoTimerRef.current = setInterval(nextVideo, 5000);
+    montageTimerRef.current = setInterval(nextMontage, 5000);
+    webTimerRef.current = setInterval(nextWeb, 5000);
+  }, [clearAllTimers, nextVideo, nextMontage, nextWeb]);
 
   const handleVideoClick = (index: number) => {
     if (index !== activeVideo) {
@@ -103,21 +97,14 @@ const ServicesPage: React.FC = () => {
     }
   };
 
-  const startAllTimers = () => {
-    clearAllTimers();
-    videoTimerRef.current = setInterval(nextVideo, 5000);
-    montageTimerRef.current = setInterval(nextMontage, 5000);
-    webTimerRef.current = setInterval(nextWeb, 5000);
-  };
-
   useEffect(() => {
     startAllTimers();
     return () => clearAllTimers();
-  }, [nextVideo, nextMontage, nextWeb]);
+  }, [startAllTimers, clearAllTimers]);
 
   useEffect(() => {
     if (!playingVideo && !playingMontage) startAllTimers();
-  }, [playingVideo, playingMontage]);
+  }, [playingVideo, playingMontage, startAllTimers]);
 
   return (
     <div className="relative pt-10">
@@ -237,6 +224,28 @@ const ServicesPage: React.FC = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.2} className="w-full flex justify-center lg:justify-start lg:pe-20">
               <button onClick={() => navigate('/services/photography')} className="px-12 py-3 rounded-full bg-white/5 border border-white/10 text-blue-400 text-xl md:text-2xl hover:bg-white/10 transition-all font-bold">{t('services.more')}</button>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Design Section */}
+      <section className="relative py-2 md:py-20 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-16">
+         <div className="w-full lg:w-2/5 flex justify-center relative lg:-mt-[250px] z-50 order-1 lg:order-2 mb-8 md:mb-0">
+            <ScrollReveal direction={language === 'ar' ? 'left' : 'right'} className="relative w-40 h-40 md:w-[28rem] md:h-[28rem] animate-float" style={{ animationDelay: '1s' }}>
+              <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768844028/designer_flip_xbi533.png" alt="Design Astronaut" className={`w-full h-auto ${language === 'ar' ? 'scale-x-[-1]' : ''}`} />
+            </ScrollReveal>
+          </div>
+          <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-end text-center lg:text-end order-2 lg:order-1">
+            <ScrollReveal direction={language === 'ar' ? 'right' : 'left'}>
+              <h2 className={`text-3xl md:text-7xl text-white glow-text mb-6 font-black relative ${language === 'ar' ? 'lg:-translate-x-[150px]' : 'lg:translate-x-[260px]'} z-0 pointer-events-none whitespace-nowrap`}>{t('service.design')}</h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1} direction={language === 'ar' ? 'right' : 'left'}>
+              <p className={`text-gray-300 text-base md:text-xl max-w-[360px] leading-loose mb-12 relative ${language === 'ar' ? 'lg:-translate-x-[150px]' : 'lg:-translate-x-[120px]'}`}>{t('service.design.desc')}</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2} className="w-full flex justify-center lg:justify-end">
+              <button onClick={() => navigate('/services/design')} className="px-12 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 text-purple-400 font-bold text-xl md:text-2xl transition-all">{t('services.more')}</button>
             </ScrollReveal>
           </div>
         </div>

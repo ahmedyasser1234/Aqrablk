@@ -2,11 +2,43 @@ import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
+// قائمة فيديوهات المونتاج الطولي (Shorts)
+const verticalMontageVideos = [
+  "6i4Tpocv5C8"
+];
+
+// قائمة فيديوهات المونتاج العرضي
+const horizontalMontageVideos = [
+  "CFC9RlT4iag",
+  "OF2HItDjrFA",
+  "VtiITVEEMcw",
+  "r9P6A24-MnI",
+  "GnU8Zt5mBVw"
+];
+
+// مصفوفة الألوان للتنويع (بنفسجي، أزرق، وردي)
+const borderColors = ['#a855f7', '#3b82f6', '#ec4899'];
+
 const MontagePage: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
     <div className="pt-24 px-6 md:px-10 pb-20">
+      <style>{`
+        .glowing-border-box {
+          position: relative;
+          overflow: hidden;
+          z-index: 0;
+          border-radius: 2rem;
+          /* استبدال الأنيميشن بـ Glow ثابت */
+          box-shadow: 0 0 30px -5px var(--glow-color);
+          border: 1px solid var(--glow-color);
+        }
+        .glowing-border-box.vertical {
+           border-radius: 2.5rem;
+        }
+      `}</style>
+
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 md:gap-16 min-h-[60vh] md:min-h-[70vh]">
         <div className="w-full lg:w-1/2 text-center lg:text-start">
@@ -21,15 +53,20 @@ const MontagePage: React.FC = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.4} className="flex gap-4 justify-center lg:justify-start">
-            <button className="px-8 py-3 rounded-full bg-purple-600 text-white font-bold hover:bg-purple-700 transition-all hover:shadow-lg hover:shadow-purple-500/30">
+            <a 
+              href="https://wa.me/201099822822" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-3 rounded-full bg-purple-600 text-white font-bold hover:bg-purple-700 transition-all hover:shadow-lg hover:shadow-purple-500/30 inline-block text-center"
+            >
               {t('common.order_now')}
-            </button>
+            </a>
           </ScrollReveal>
         </div>
         <div className="w-full lg:w-1/2">
           <ScrollReveal delay={0.3}>
             <img 
-              src={language === 'en' ? 'URL_FOR_ENGLISH_IMAGE_HERE' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686469/xxx_yv639q.png'} 
+              src={language === 'en' ? 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768840850/montir_flip_1_hjqsju.png' : 'https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686469/xxx_yv639q.png'} 
               className={`w-full animate-float drop-shadow-[0_0_50px_rgba(168,85,247,0.3)] object-contain ${language === 'en' ? 'scale-x-[-1]' : ''}`} 
               alt="Montage Astronaut"
             />
@@ -45,18 +82,24 @@ const MontagePage: React.FC = () => {
           </h2>
         </ScrollReveal>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-          {[1, 2, 3, 4].map((i, index) => (
-            <ScrollReveal key={`vertical-${i}`} delay={index * 0.1}>
-              <div className="aspect-[9/16] rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all cursor-pointer overflow-hidden group relative">
-                <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="w-full h-full bg-gray-900/50 flex flex-col items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                   <div className="flex flex-col items-center gap-3">
-                     <span className="text-4xl">📱</span>
-                     <span className="text-white/40 text-[10px] md:text-sm font-medium tracking-widest uppercase">
-                       {t('common.work_video')} {i}
-                     </span>
-                   </div>
-                </div>
+          {verticalMontageVideos.map((id, index) => (
+            <ScrollReveal key={`vertical-${index}`} delay={index * 0.1}>
+              <div 
+                className="glowing-border-box vertical aspect-[9/16]"
+                // تغيير اللون بناءً على الترتيب
+                style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
+              >
+                 <div className="inner-content w-full h-full rounded-[2.5rem] overflow-hidden relative z-10">
+                   <iframe 
+                     src={`https://www.youtube.com/embed/${id}`} 
+                     title={`Vertical Montage ${index + 1}`}
+                     className="w-full h-full"
+                     frameBorder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     referrerPolicy="strict-origin-when-cross-origin" 
+                     allowFullScreen
+                   ></iframe>
+                 </div>
               </div>
             </ScrollReveal>
           ))}
@@ -71,18 +114,24 @@ const MontagePage: React.FC = () => {
           </h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-          {[1, 2, 3].map((i, index) => (
-            <ScrollReveal key={`horizontal-${i}`} delay={index * 0.1}>
-              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all cursor-pointer overflow-hidden group relative">
-                <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="w-full h-full bg-gray-900/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                   <div className="flex flex-col items-center gap-4">
-                     <span className="text-4xl">🎬</span>
-                     <span className="text-white/40 text-sm md:text-base font-medium tracking-widest uppercase">
-                       {t('common.work_video')} {i}
-                     </span>
-                   </div>
-                </div>
+          {horizontalMontageVideos.map((id, index) => (
+            <ScrollReveal key={`horizontal-${index}`} delay={index * 0.1}>
+              <div 
+                className="glowing-border-box aspect-video"
+                // تغيير اللون بناءً على الترتيب
+                style={{ '--glow-color': borderColors[(index + 1) % borderColors.length] } as React.CSSProperties}
+              >
+                 <div className="inner-content w-full h-full rounded-[2rem] overflow-hidden relative z-10">
+                   <iframe 
+                     src={`https://www.youtube.com/embed/${id}`} 
+                     title={`Horizontal Montage ${index + 1}`}
+                     className="w-full h-full"
+                     frameBorder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     referrerPolicy="strict-origin-when-cross-origin" 
+                     allowFullScreen
+                   ></iframe>
+                 </div>
               </div>
             </ScrollReveal>
           ))}

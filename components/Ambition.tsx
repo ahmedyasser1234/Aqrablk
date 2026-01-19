@@ -21,14 +21,11 @@ const Ambition: React.FC = () => {
         />
       </div>
 
-      {/* حاوية النص مع إزاحة إضافية لليمين في الإنجليزية ديسكتوب - تم الحفاظ على pt-24 للرفع في الموبايل */}
-      <div className={`relative z-30 max-w-5xl w-full flex flex-col items-center md:items-start text-center md:text-start pt-24 md:pt-0 ${
-        language === 'en' 
-          ? 'md:ms-64 lg:ms-[28rem]' 
-          : 'md:ms-48 lg:ms-72'
-      }`}>
+      {/* حاوية النص - تم تعديلها لتكون في المنتصف على الديسكتوب */}
+      <div className="relative z-30 max-w-5xl w-full flex flex-col items-center text-center pt-24 md:pt-0">
         <ScrollReveal>
-          <h2 className="text-2xl md:text-[7rem] glow-text mb-4 md:mb-6 ">
+          {/* تم تصغير الخط والحواف */}
+          <h2 className="inline-block text-2xl md:text-4xl  text-purple-500 mb-6 md:mb-10 px-8 py-2 md:px-12 md:py-4 border-2 border-purple-500 rounded-full shadow-[0_0_25px_rgba(168,85,247,0.4)] glow-text">
             {t('ambition.title')}
           </h2>
         </ScrollReveal>
