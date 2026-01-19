@@ -53,9 +53,14 @@ const MontagePage: React.FC = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.4} className="flex gap-4 justify-center lg:justify-start">
-            <button className="px-8 py-3 rounded-full bg-purple-600 text-white font-bold hover:bg-purple-700 transition-all hover:shadow-lg hover:shadow-purple-500/30">
+            <a 
+              href="https://wa.me/201099822822" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-3 rounded-full bg-purple-600 text-white font-bold hover:bg-purple-700 transition-all hover:shadow-lg hover:shadow-purple-500/30 inline-block text-center"
+            >
               {t('common.order_now')}
-            </button>
+            </a>
           </ScrollReveal>
         </div>
         <div className="w-full lg:w-1/2">
