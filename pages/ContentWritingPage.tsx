@@ -53,7 +53,14 @@ const ContentWritingPage: React.FC = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.4} className="flex gap-4 justify-center lg:justify-start">
-            <button className="px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]">{t('common.request_sample')}</button>
+            <a 
+              href="https://wa.me/201099822822" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] inline-block text-center"
+            >
+              {t('common.request_sample')}
+            </a>
           </ScrollReveal>
         </div>
       </section>
