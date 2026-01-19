@@ -2,6 +2,11 @@ import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
+// قائمة فيديوهات المونتاج الطولي (Shorts) - يمكنك إضافة معرف الفيديو (ID) هنا ليظهر في القسم تلقائياً
+const verticalMontageVideos = [
+  "6i4Tpocv5C8"
+];
+
 // قائمة فيديوهات المونتاج العرضي - يمكنك إضافة معرف الفيديو (ID) هنا ليظهر في القسم تلقائياً
 const horizontalMontageVideos = [
   "CFC9RlT4iag",
@@ -54,18 +59,18 @@ const MontagePage: React.FC = () => {
           </h2>
         </ScrollReveal>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-          {[1, 2, 3, 4].map((i, index) => (
-            <ScrollReveal key={`vertical-${i}`} delay={index * 0.1}>
-              <div className="aspect-[9/16] rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all cursor-pointer overflow-hidden group relative">
-                <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="w-full h-full bg-gray-900/50 flex flex-col items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                   <div className="flex flex-col items-center gap-3">
-                     <span className="text-4xl">📱</span>
-                     <span className="text-white/40 text-[10px] md:text-sm font-medium tracking-widest uppercase">
-                       {t('common.work_video')} {i}
-                     </span>
-                   </div>
-                </div>
+          {verticalMontageVideos.map((id, index) => (
+            <ScrollReveal key={`vertical-${index}`} delay={index * 0.1}>
+              <div className="aspect-[9/16] rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all overflow-hidden group relative shadow-2xl">
+                 <iframe 
+                   src={`https://www.youtube.com/embed/${id}`} 
+                   title={`Vertical Montage ${index + 1}`}
+                   className="w-full h-full"
+                   frameBorder="0" 
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                   referrerPolicy="strict-origin-when-cross-origin" 
+                   allowFullScreen
+                 ></iframe>
               </div>
             </ScrollReveal>
           ))}
