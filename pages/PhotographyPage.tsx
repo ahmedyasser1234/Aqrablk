@@ -48,9 +48,9 @@ const PhotographyPage: React.FC = () => {
           top: -50%;
           left: -50%;
           /* تم تقليل الشفافية قليلاً وزيادة كثافة اللون للظهور مع البلور */
-          background: conic-gradient(transparent 20%, transparent 40%, var(--glow-color));
+          background: conic-gradient(transparent 30%, transparent 50%, var(--glow-color));
           /* تسريع الحركة من 2.5s إلى 1.5s */
-          animation: border-rotate 1.5s linear infinite; 
+          animation: border-rotate 2.0s linear infinite; 
           filter: blur(10px); 
           z-index: -2;
         }
