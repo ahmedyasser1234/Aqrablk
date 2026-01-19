@@ -25,48 +25,17 @@ const MontagePage: React.FC = () => {
   return (
     <div className="pt-24 px-6 md:px-10 pb-20">
       <style>{`
-        @keyframes border-rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
         .glowing-border-box {
           position: relative;
           overflow: hidden;
           z-index: 0;
-          padding: 3px; /* Border width */
-          border-radius: 2rem; /* Default radius */
+          border-radius: 2rem;
+          /* استبدال الأنيميشن بـ Glow ثابت */
+          box-shadow: 0 0 30px -5px var(--glow-color);
+          border: 1px solid var(--glow-color);
         }
         .glowing-border-box.vertical {
            border-radius: 2.5rem;
-        }
-        .glowing-border-box::before {
-          content: '';
-          position: absolute;
-          width: 200%;
-          height: 200%;
-          top: -50%;
-          left: -50%;
-          /* تم تقليل الشفافية قليلاً وزيادة كثافة اللون للظهور مع البلور */
-          background: conic-gradient(transparent 10%, transparent 20%, var(--glow-color));
-          /* تسريع الحركة من 2.5s إلى 1.5s */
-          animation: border-rotate 4.0s linear infinite;
-          filter: blur(5px);
-          z-index: -2;
-        }
-        .glowing-border-box::after {
-          content: '';
-          position: absolute;
-          inset: 3px;
-          background: #080911;
-          border-radius: inherit; /* Matches parent radius */
-          z-index: -1;
-        }
-        /* Specific radius fix for vertical inner container */
-        .glowing-border-box.vertical .inner-content {
-          border-radius: calc(2.5rem - 3px);
-        }
-        .glowing-border-box .inner-content {
-          border-radius: calc(2rem - 3px);
         }
       `}</style>
 
@@ -111,11 +80,11 @@ const MontagePage: React.FC = () => {
           {verticalMontageVideos.map((id, index) => (
             <ScrollReveal key={`vertical-${index}`} delay={index * 0.1}>
               <div 
-                className="glowing-border-box vertical aspect-[9/16] shadow-2xl"
+                className="glowing-border-box vertical aspect-[9/16]"
                 // تغيير اللون بناءً على الترتيب
                 style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
               >
-                 <div className="inner-content w-full h-full overflow-hidden relative z-10">
+                 <div className="inner-content w-full h-full rounded-[2.5rem] overflow-hidden relative z-10">
                    <iframe 
                      src={`https://www.youtube.com/embed/${id}`} 
                      title={`Vertical Montage ${index + 1}`}
@@ -143,11 +112,11 @@ const MontagePage: React.FC = () => {
           {horizontalMontageVideos.map((id, index) => (
             <ScrollReveal key={`horizontal-${index}`} delay={index * 0.1}>
               <div 
-                className="glowing-border-box aspect-video shadow-2xl"
+                className="glowing-border-box aspect-video"
                 // تغيير اللون بناءً على الترتيب
                 style={{ '--glow-color': borderColors[(index + 1) % borderColors.length] } as React.CSSProperties}
               >
-                 <div className="inner-content w-full h-full overflow-hidden relative z-10">
+                 <div className="inner-content w-full h-full rounded-[2rem] overflow-hidden relative z-10">
                    <iframe 
                      src={`https://www.youtube.com/embed/${id}`} 
                      title={`Horizontal Montage ${index + 1}`}
