@@ -18,38 +18,14 @@ const StudioRentalPage: React.FC = () => {
   return (
     <div className="pt-24 px-10 pb-12">
       <style>{`
-        @keyframes border-rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
         .glowing-border-box {
           position: relative;
           overflow: hidden;
           z-index: 0;
-          padding: 3px; /* Border width */
           border-radius: 2rem;
-        }
-        .glowing-border-box::before {
-          content: '';
-          position: absolute;
-          width: 200%;
-          height: 200%;
-          top: -50%;
-          left: -50%;
-          /* تم تقليل الشفافية قليلاً وزيادة كثافة اللون للظهور مع البلور */
-          background: conic-gradient(transparent 20%, transparent 40%, var(--glow-color));
-          /* تسريع الحركة من 2.5s إلى 1.5s */
-          animation: border-rotate 1.5s linear infinite; 
-          filter: blur(10px); 
-          z-index: -2;
-        }
-        .glowing-border-box::after {
-          content: '';
-          position: absolute;
-          inset: 3px;
-          background: #080911;
-          border-radius: calc(2rem - 3px);
-          z-index: -1;
+          /* استبدال الأنيميشن بـ Glow ثابت */
+          box-shadow: 0 0 30px -5px var(--glow-color);
+          border: 1px solid var(--glow-color);
         }
       `}</style>
 
@@ -84,7 +60,7 @@ const StudioRentalPage: React.FC = () => {
                className="glowing-border-box h-full"
                style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
              >
-               <div className="relative z-10 h-full p-8 rounded-[calc(2rem-3px)] text-center flex flex-col items-center justify-center">
+               <div className="relative z-10 h-full p-8 rounded-[2rem] text-center flex flex-col items-center justify-center">
                  <div className="text-4xl mb-4">{feature.icon}</div>
                  <h3 className="text-xl font-bold mb-2">{t(feature.titleKey)}</h3>
                  <p className="text-gray-400">{t(feature.descKey)}</p>
