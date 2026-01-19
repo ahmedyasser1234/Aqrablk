@@ -49,7 +49,7 @@ const MontagePage: React.FC = () => {
           /* تم تقليل الشفافية قليلاً وزيادة كثافة اللون للظهور مع البلور */
           background: conic-gradient(transparent 30%, transparent 50%, var(--glow-color));
           /* تسريع الحركة من 2.5s إلى 1.5s */
-          animation: border-rotate 2.0s linear infinite;
+          animation: border-rotate 4.0s linear infinite;
           filter: blur(10px);
           z-index: -2;
         }
