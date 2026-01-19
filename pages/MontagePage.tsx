@@ -2,12 +2,12 @@ import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
-// قائمة فيديوهات المونتاج الطولي (Shorts) - يمكنك إضافة معرف الفيديو (ID) هنا ليظهر في القسم تلقائياً
+// قائمة فيديوهات المونتاج الطولي (Shorts)
 const verticalMontageVideos = [
   "6i4Tpocv5C8"
 ];
 
-// قائمة فيديوهات المونتاج العرضي - يمكنك إضافة معرف الفيديو (ID) هنا ليظهر في القسم تلقائياً
+// قائمة فيديوهات المونتاج العرضي
 const horizontalMontageVideos = [
   "CFC9RlT4iag",
   "OF2HItDjrFA",
@@ -21,6 +21,49 @@ const MontagePage: React.FC = () => {
 
   return (
     <div className="pt-24 px-6 md:px-10 pb-20">
+      <style>{`
+        @keyframes border-rotate {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .glowing-border-box {
+          position: relative;
+          overflow: hidden;
+          z-index: 0;
+          padding: 3px; /* Border width */
+          border-radius: 2rem; /* Default radius */
+        }
+        .glowing-border-box.vertical {
+           border-radius: 2.5rem;
+        }
+        .glowing-border-box::before {
+          content: '';
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          top: -50%;
+          left: -50%;
+          background: conic-gradient(transparent, transparent, transparent, var(--glow-color));
+          animation: border-rotate 4s linear infinite;
+          z-index: -2;
+        }
+        .glowing-border-box::after {
+          content: '';
+          position: absolute;
+          inset: 3px;
+          background: #080911;
+          border-radius: inherit; /* Matches parent radius */
+          z-index: -1;
+        }
+        /* Specific radius fix for vertical inner container */
+        .glowing-border-box.vertical .inner-content {
+          border-radius: calc(2.5rem - 3px);
+        }
+        .glowing-border-box .inner-content {
+          border-radius: calc(2rem - 3px);
+        }
+      `}</style>
+
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 md:gap-16 min-h-[60vh] md:min-h-[70vh]">
         <div className="w-full lg:w-1/2 text-center lg:text-start">
@@ -61,16 +104,21 @@ const MontagePage: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
           {verticalMontageVideos.map((id, index) => (
             <ScrollReveal key={`vertical-${index}`} delay={index * 0.1}>
-              <div className="aspect-[9/16] rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all overflow-hidden group relative shadow-2xl">
-                 <iframe 
-                   src={`https://www.youtube.com/embed/${id}`} 
-                   title={`Vertical Montage ${index + 1}`}
-                   className="w-full h-full"
-                   frameBorder="0" 
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                   referrerPolicy="strict-origin-when-cross-origin" 
-                   allowFullScreen
-                 ></iframe>
+              <div 
+                className="glowing-border-box vertical aspect-[9/16] shadow-2xl"
+                style={{ '--glow-color': '#a855f7' } as React.CSSProperties}
+              >
+                 <div className="inner-content w-full h-full overflow-hidden relative z-10">
+                   <iframe 
+                     src={`https://www.youtube.com/embed/${id}`} 
+                     title={`Vertical Montage ${index + 1}`}
+                     className="w-full h-full"
+                     frameBorder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     referrerPolicy="strict-origin-when-cross-origin" 
+                     allowFullScreen
+                   ></iframe>
+                 </div>
               </div>
             </ScrollReveal>
           ))}
@@ -87,16 +135,21 @@ const MontagePage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {horizontalMontageVideos.map((id, index) => (
             <ScrollReveal key={`horizontal-${index}`} delay={index * 0.1}>
-              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all overflow-hidden group relative shadow-2xl">
-                 <iframe 
-                   src={`https://www.youtube.com/embed/${id}`} 
-                   title={`Horizontal Montage ${index + 1}`}
-                   className="w-full h-full"
-                   frameBorder="0" 
-                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                   referrerPolicy="strict-origin-when-cross-origin" 
-                   allowFullScreen
-                 ></iframe>
+              <div 
+                className="glowing-border-box aspect-video shadow-2xl"
+                style={{ '--glow-color': '#3b82f6' } as React.CSSProperties}
+              >
+                 <div className="inner-content w-full h-full overflow-hidden relative z-10">
+                   <iframe 
+                     src={`https://www.youtube.com/embed/${id}`} 
+                     title={`Horizontal Montage ${index + 1}`}
+                     className="w-full h-full"
+                     frameBorder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     referrerPolicy="strict-origin-when-cross-origin" 
+                     allowFullScreen
+                   ></iframe>
+                 </div>
               </div>
             </ScrollReveal>
           ))}
