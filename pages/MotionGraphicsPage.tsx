@@ -43,8 +43,8 @@ const MotionGraphicsPage: React.FC = () => {
           left: -50%;
           /* تم تقليل الشفافية قليلاً وزيادة كثافة اللون للظهور مع البلور */
           background: conic-gradient(transparent 20%, transparent 40%, var(--glow-color));
-          /* تسريع الحركة من 4s إلى 2.5s وإضافة بلور للإضاءة الخفية */
-          animation: border-rotate 2.5s linear infinite; 
+          /* تسريع الحركة من 2.5s إلى 1.5s */
+          animation: border-rotate 1.5s linear infinite; 
           filter: blur(10px); 
           z-index: -2;
         }
