@@ -46,7 +46,7 @@ const StudioRentalPage: React.FC = () => {
         <div className="w-full lg:w-1/2 relative">
           <ScrollReveal delay={0.3}>
             <div className="rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
-              <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686452/bbb_k3mvpy.png alt="الاستوديو" className="w-full h-auto object-cover" />
+              <img src="https://res.cloudinary.com/dk3wwuy5d/image/upload/v1768686452/bbb_k3mvpy.png" alt="الاستوديو" className="w-full h-auto object-cover" />
             </div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-500/20 blur-[80px]"></div>
           </ScrollReveal>
