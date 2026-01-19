@@ -55,43 +55,8 @@ const WebDesignPage: React.FC = () => {
         </div>
       </section>
 
-      {/* قسم أعمالنا الجديد */}
-      <section className="py-16 max-w-7xl mx-auto border-t border-white/5 mt-10">
-        <ScrollReveal>
-          <h2 className="text-3xl md:text-5xl text-center glow-text mb-12 font-black text-purple-300">
-             {t('common.portfolio')}
-          </h2>
-        </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-           {webProjects.map((project, index) => (
-             <ScrollReveal key={index} delay={index * 0.1}>
-               <a 
-                 href={project.url} 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="glowing-border-box block aspect-video group"
-                 style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
-               >
-                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative z-10">
-                   <img 
-                      src={project.image} 
-                      alt={`Project ${index + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                   />
-                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="text-white font-bold text-xl px-6 py-2 border border-white/50 rounded-full backdrop-blur-md">
-                        {t('common.view_work')}
-                      </span>
-                   </div>
-                 </div>
-               </a>
-             </ScrollReveal>
-           ))}
-        </div>
-      </section>
-
       {/* قسم المميزات (معدل بالتوهج) */}
-      <section className="py-12 max-w-7xl mx-auto">
+      <section className="py-12 max-w-7xl mx-auto mt-10">
         <ScrollReveal>
           <h2 className="text-4xl text-center glow-text mb-16">{t('page.web.why_us')}</h2>
         </ScrollReveal>
@@ -131,6 +96,41 @@ const WebDesignPage: React.FC = () => {
               </div>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* قسم أعمالنا الجديد */}
+      <section className="py-16 max-w-7xl mx-auto border-t border-white/5 mt-10">
+        <ScrollReveal>
+          <h2 className="text-3xl md:text-5xl text-center glow-text mb-12 font-black text-purple-300">
+             {t('common.portfolio')}
+          </h2>
+        </ScrollReveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+           {webProjects.map((project, index) => (
+             <ScrollReveal key={index} delay={index * 0.1}>
+               <a 
+                 href={project.url} 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="glowing-border-box block aspect-video group"
+                 style={{ '--glow-color': borderColors[index % borderColors.length] } as React.CSSProperties}
+               >
+                 <div className="w-full h-full rounded-[2rem] overflow-hidden relative z-10">
+                   <img 
+                      src={project.image} 
+                      alt={`Project ${index + 1}`} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                   />
+                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="text-white font-bold text-xl px-6 py-2 border border-white/50 rounded-full backdrop-blur-md">
+                        {t('common.view_work')}
+                      </span>
+                   </div>
+                 </div>
+               </a>
+             </ScrollReveal>
+           ))}
         </div>
       </section>
     </div>
