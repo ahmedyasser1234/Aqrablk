@@ -3,6 +3,11 @@ import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import ScrollReveal from '../components/ScrollReveal';
 
+// قائمة فيديوهات الموشن جرافيك
+const motionVideos = [
+  "0NgXkHQTt4U"
+];
+
 // قائمة فيديوهات الوايت بورد - يمكنك إضافة معرف الفيديو (ID) هنا ليظهر في القسم تلقائياً
 // ID هو الجزء الأخير من رابط اليوتيوب، مثلاً في https://www.youtube.com/embed/k9M60YJJ3iE الـ ID هو k9M60YJJ3iE
 const whiteboardVideos = [
@@ -60,18 +65,18 @@ const MotionGraphicsPage: React.FC = () => {
           </h2>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-          {[1, 2, 3].map((i, index) => (
-            <ScrollReveal key={`motion-${i}`} delay={index * 0.1}>
-              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all cursor-pointer overflow-hidden group relative">
-                <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="w-full h-full bg-gray-900/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-700">
-                   <div className="flex flex-col items-center gap-4">
-                     <span className="text-4xl">🎬</span>
-                     <span className="text-white/40 text-sm md:text-base font-medium tracking-widest uppercase">
-                       {t('common.work_video')} {i}
-                     </span>
-                   </div>
-                </div>
+          {motionVideos.map((id, index) => (
+            <ScrollReveal key={`motion-${index}`} delay={index * 0.1}>
+              <div className="aspect-video rounded-[2rem] bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all overflow-hidden group relative shadow-2xl">
+                 <iframe 
+                   src={`https://www.youtube.com/embed/${id}`} 
+                   title={`Motion Video ${index + 1}`}
+                   className="w-full h-full"
+                   frameBorder="0" 
+                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                   referrerPolicy="strict-origin-when-cross-origin" 
+                   allowFullScreen
+                 ></iframe>
               </div>
             </ScrollReveal>
           ))}
