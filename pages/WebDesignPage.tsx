@@ -41,7 +41,14 @@ const WebDesignPage: React.FC = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.4} className="flex gap-4 justify-center lg:justify-start">
-            <button className="px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)]">{t('common.start_project')}</button>
+            <a 
+              href="https://wa.me/201099822822" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-bold transition-all shadow-[0_0_20px_rgba(168,85,247,0.4)] inline-block text-center"
+            >
+              {t('common.start_project')}
+            </a>
           </ScrollReveal>
         </div>
         <div className="w-full lg:w-1/2">
