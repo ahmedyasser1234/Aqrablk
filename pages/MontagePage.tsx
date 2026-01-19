@@ -50,7 +50,7 @@ const MontagePage: React.FC = () => {
           background: conic-gradient(transparent 10%, transparent 20%, var(--glow-color));
           /* تسريع الحركة من 2.5s إلى 1.5s */
           animation: border-rotate 4.0s linear infinite;
-          filter: blur(10px);
+          filter: blur(5px);
           z-index: -2;
         }
         .glowing-border-box::after {
